@@ -1,7 +1,6 @@
 $(document).ready(function() {
 
 
-
 // WEB VIEW NO LOGGED //
 
 

@@ -56,6 +56,13 @@ select, input{
   overflow:auto;
   background-image: url("../assets/50010_label.jpg");
 }
+
+
+.slider{
+width: auto;
+height: 500px;
+}
+
 /* TASKBAR */
 #taskbar{
   width: 100%;
