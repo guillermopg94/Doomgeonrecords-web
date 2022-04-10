@@ -27,8 +27,8 @@ $(document).ready(function () {
       }
     },
     error: function (xhr) {
-      alert("Atencion: se ha producido un error");
-      $("#content").append(xhr.statusText + xhr.responseText);
+console.log("ERROR "+ xhr +" EN CONTROL DE SESIÓN DE USUARIO.");
+     
     },
   });
 });

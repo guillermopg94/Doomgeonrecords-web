@@ -27,7 +27,7 @@ x.nombre +
 x.primerapellido +
 "</p>Segundo Apellido<p>" +
 x.segundoapellido +
-"</p>Nombre de Uusario<p>" +
+"</p>Nombre de Usuario<p>" +
 x.user +
 "</p>Email<p>" +
 x.email +

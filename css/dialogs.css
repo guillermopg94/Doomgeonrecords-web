@@ -1,0 +1,16 @@
+#dialog-created{
+    color: green;
+  }
+  #dialog-password{
+    color: red;
+  }
+  #dialog-exist{
+    color: red;
+  }
+  #dialog-password-adding-user{
+    color: red;
+  }
+  #dialog-fields-adding-user{
+    color: red;
+  }
+  

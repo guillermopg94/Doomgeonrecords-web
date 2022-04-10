@@ -8,6 +8,7 @@ $MySQL = $MySQLConnection->getDBConnection();
 
 $nombre_cd = $_GET['nombreCD'];
 $imagen_cd = $_GET['imagenCD'];
+$nombre_producto = $_GET['nombreProducto'];
 $nombre_casete = $_GET['nombreCasete'];
 $imagen_casete = $_GET['imagenCasete'];
 $nombre_vinilo = $_GET['nombreVinilo'];
@@ -41,7 +42,7 @@ $NumerodeColumnas3 = mysqli_num_rows($sqlUserExiste3);
 
 if ($NumerodeColumnas == 0 || $NumerodeColumnas1 == 0 || $NumerodeColumnas2 == 0 || $NumerodeColumnas3 == 0) {
 
-    $sql_insert = "INSERT INTO producto (cd_nombre, casete_nombre, vinilo_nombre, camiseta_nombre, cd_imagen, casete_imagen, vinilo_imagen, camiseta_imagen, cd_cantidad, casete_cantidad, camiseta_cantidad, vinilo_cantidad, id_artista, tallaXXL, tallaXL, tallaL, tallaM, tallaS) VALUES ('$nombre_cd','$nombre_casete','$nombre_vinilo', '$nombre_camiseta', '$imagen_cd', '$imagen_casete', '$imagen_vinilo', '$imagen_camiseta', $cantidad_cd, $cantidad_casete, $cantidad_camiseta, $cantidad_vinilo, $codigo_artista, $tallaXXL, $tallaXL, $tallaL, $tallaM, $tallaS )";
+    $sql_insert = "INSERT INTO producto (cd_nombre, casete_nombre, vinilo_nombre, camiseta_nombre, cd_imagen, casete_imagen, vinilo_imagen, camiseta_imagen, cd_cantidad, casete_cantidad, camiseta_cantidad, vinilo_cantidad, id_artista, tallaXXL, tallaXL, tallaL, tallaM, tallaS, nombre_producto) VALUES ('$nombre_cd','$nombre_casete','$nombre_vinilo', '$nombre_camiseta', '$imagen_cd', '$imagen_casete', '$imagen_vinilo', '$imagen_camiseta', $cantidad_cd, $cantidad_casete, $cantidad_camiseta, $cantidad_vinilo, $codigo_artista, $tallaXXL, $tallaXL, $tallaL, $tallaM, $tallaS, $nombre_producto)";
 
     $res = $MySQL->query($sql_insert);
 

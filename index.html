@@ -4,15 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="initial-scale=1">
-
+    <link rel="shortcut icon" href="assets/logodoomgeonrecords.jpg">
+  
     <title>Doomgeon Records </title>
 </head>
 <body>
 <!-- Start Navigation Bar -->
 <div id="container"> 
   <div id="taskbar">
-  <div id="doomgeon-record-logo">
-      <img src="assets/logodoomgeonrecords.jpg" alt="logo of Doomgeon Records">
+  <div id="logo-en-no-logged">
+      <img src="assets/logodoomgeonrecords.jpg" alt="logo of Doomgeon Records" >
   </div>
   <div id="logo-login">
     <img src="assets/loginmasgrande.png" alt="logo for log in">
@@ -24,39 +25,35 @@
   
   <ul class="menu">
     <li id="home-no-logged">
-      <a href="">HOME </a>
+      <a href="">INICIO </a>
     </li>
     <li id="artists-no-logged">
-      <a href="" >ARTISTS </a>
+      <a href="" >ARTISTAS </a>
       
     </li>
     <li id="shop-no-logged">
-      <a href="">SHOP</a>
+      <a href="">TIENDA</a>
     </li>
     <li id="contact-no-logged">
-      <a href="">CONTACT</a>
+      <a href="">CONTACTO</a>
     </li>
   </ul>
 </nav>
 </div>
 <!-- /Navigation Bar -->
-<div id="content"> 
+<div id="content" > 
 <!-- Dinamic Content of the site -->
-<div class="slider">
-  <div><img src="assets/dh.jpg" alt="Double Horse" width="100%" height="100%"> <div><p>Double Horse</p></div></div>
-  <div><img src="assets/captain moledo.jpg" alt="" width="100%" height="100%"></div>
-  <div><img src="assets/bd.jpg" alt="" width="100%" height="100%"></div>
-  <div><img src="assets/captain.jpg" alt="" width="100%" height="100%"></div>
-  <div><img src="assets/Here-the-Captain-Speaking-the-Captain-is-Dead-800x445.png" alt="" width="100%" height="100%"></div>
-</div>
+
 
 <!-- /Dinamic Content of the site -->
 </div>
+<div class='content-extension'></div>
+
+
 <div id="footer">
   <div id="copy-right">
     © 2021 Doomgeon Records
   </div>
-
   <div id="social_network">
  <img src="assets/icons8-facebook-30.png" class="social-media-every-icon" id="facebook-icon" alt="logo of doomgeon records facebook by icons8" width="23" height="22">
  <img src="assets/icons8-instagram-30.png" class="social-media-every-icon" id="instagram-icon" alt="logo of doomgeon records instagram by icons8" width="23" height="22">
@@ -64,8 +61,15 @@
 </div>
 </div>
 </body>
-<link rel="shortcut icon" href="assets/logodoomgeonrecords.jpg">
-<link rel="stylesheet" href="css/index.css">
+
+<link rel="stylesheet" href="css/general.css">
+<link rel="stylesheet" href="css/menu.css">
+<link rel="stylesheet" href="css/taskbar.css">
+<link rel="stylesheet" href="css/login.css">
+<link rel="stylesheet" href="css/dialogs.css">
+<link rel="stylesheet" href="css/artists.css">
+<link rel="stylesheet" href="css/footer.css">
+<link rel="stylesheet" href="css/contact.css">
 <script src="js/jquery-3.6.0.min.js" type="text/javascript"></script>
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
@@ -80,14 +84,15 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300&family=Roboto+Slab:wght@300&display=swap');
     </style>
+<link rel="stylesheet" href="css/popupConsent.css" />
 
+<script src="js/popupConsent.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
-<script>
-  $(document).ready(function(){
-    $('.slider').bxSlider();
-    
-  });
-</script>
+<script>$(document).ready(function(){$('.slider').bxSlider();});</script>
+
+<!-- cookies -->
+
+
 </html>

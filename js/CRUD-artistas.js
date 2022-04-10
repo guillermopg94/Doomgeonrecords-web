@@ -2,6 +2,41 @@ $(document).ready(function() {
 
 if(localStorage.getItem("ubication")=="artistas"){
 
+
+  $.ajax({
+    url: "php/selectAlbum.php",
+    dataType: "json",
+    success: function (resultado) {
+      var users = resultado;
+
+      for (var x of users) {
+        $(
+          "<option value='" + x.id_album + "' selected >" + x.nombre_album + "</option>"
+        ).appendTo(".selectAlbum");
+      }
+    },
+    error: function () {
+  
+    },
+  });
+
+  $.ajax({
+    url: "php/selectProducto.php",
+    dataType: "json",
+    success: function (resultado) {
+      var users = resultado;
+
+      for (var x of users) {
+        $(
+          "<option value='" + x.id_producto + "' selected >" + x.nombre_producto + "</option>"
+        ).appendTo(".selectProducto");
+      }
+    },
+    error: function () {
+  
+    },
+  });
+
     $.ajax({
         type: "GET",
         url: "php/mostrarArtistas.php",
@@ -26,6 +61,15 @@ if(localStorage.getItem("ubication")=="artistas"){
     "</p>Imagen<p>" +
     x.imagen_artista +
     "</p>"+
+    "Bandcamp<p>" +
+    x.bandcamp +
+    "</p>"+
+    "Facebook<p>" +
+    x.facebook +
+    "</p>"+
+    "Instagram<p>" +
+    x.instagram +
+    "</p>"+
     "<img src='assets/"+ x.imagen_artista +"' alt='La imagen correspondiente al artista' width='80%' height='80%' >"+
     "<br><br><input type='button' class='eliminarArtist' name=" +
     id_artista +
@@ -49,6 +93,8 @@ if(localStorage.getItem("ubication")=="artistas"){
             draggable: true,
           });
         }else{
+          $("input[name=codigoProducto]").val(localStorage.getItem('selectProducto')); 
+          $("input[name=codigoAlbum]").val(localStorage.getItem('selectAlbum')); 
           var datos = $("#my_form3").serialize();
           $.ajax({
             type: "GET",
@@ -121,10 +167,17 @@ if(localStorage.getItem("ubication")=="artistas"){
     
         var nombreArtist = $(this).parents("#contentAdmin .usuarios").find("p:eq(0)").html();
         var imagenArtist = $(this).parents("#contentAdmin .usuarios").find("p:eq(1)").html();
+        var bandcamp = $(this).parents("#contentAdmin .usuarios").find("p:eq(2)").html();
+        var facebook = $(this).parents("#contentAdmin .usuarios").find("p:eq(3)").html();
+        var instagram = $(this).parents("#contentAdmin .usuarios").find("p:eq(4)").html();
     
         $("input[name=codigoArtist]").val(codigo);
         $("input[name=nombreArtist]").val(nombreArtist);
         $("input[name=imagenArtist]").val(imagenArtist);
+        $("input[name=bandcamp]").val(bandcamp);
+        $("input[name=facebook]").val(facebook);
+        $("input[name=instagram]").val(instagram);
+
     
         $(".confirmarArtist").css("visibility", "visible");
         $("#insertarArtist").css("visibility", "hidden");

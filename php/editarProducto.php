@@ -7,6 +7,7 @@ $MySQL = $MySQLConnection->getDBConnection();
 
     $codigo=$_POST['codigoProducto'];
     $id_artista=$_POST['codigoArtista'];
+    $nombreProducto=$_POST['nombreProducto'];
     $nombreCD=$_POST['nombreCD'];
     $cantidadCD=$_POST['cantidadCD'];
     $imagenCD=$_POST['imagenCD'];
@@ -25,7 +26,7 @@ $MySQL = $MySQLConnection->getDBConnection();
   $tallaM=$_POST['tallaM'];   
   $tallaS=$_POST['tallaS']; 
 
-    $query= "UPDATE producto SET cd_nombre='$nombreCD', casete_nombre='$nombreCasete', vinilo_nombre='$nombreVinilo', camiseta_nombre='$nombreCamiseta', cd_imagen='$imagenCD', casete_imagen='$imagenCasete', vinilo_imagen='$imagenVinilo', camiseta_imagen='$imagenCamiseta',cd_cantidad=$cantidadCD, casete_cantidad=$cantidadCasete, camiseta_cantidad=$cantidadCamiseta,vinilo_cantidad=$cantidadVinilo, id_artista=$id_artista, tallaXXL=$tallaXXL, tallaXL=$tallaXL, tallaL=$tallaL, tallaM=$tallaM, tallaS=$tallaS WHERE id_producto=$codigo";
+    $query= "UPDATE producto SET cd_nombre='$nombreCD', casete_nombre='$nombreCasete', vinilo_nombre='$nombreVinilo', camiseta_nombre='$nombreCamiseta', cd_imagen='$imagenCD', casete_imagen='$imagenCasete', vinilo_imagen='$imagenVinilo', camiseta_imagen='$imagenCamiseta',cd_cantidad=$cantidadCD, casete_cantidad=$cantidadCasete, camiseta_cantidad=$cantidadCamiseta,vinilo_cantidad=$cantidadVinilo, id_artista=$id_artista, tallaXXL=$tallaXXL, tallaXL=$tallaXL, tallaL=$tallaL, tallaM=$tallaM, tallaS=$tallaS, nombre_producto='$nombreProducto' WHERE id_producto=$codigo";
     $res = $MySQL->query($query);
 
     echo $query;

@@ -1,0 +1,29 @@
+#taskbar{
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    display:block;
+    overflow:auto;
+    background-color: #ffffff;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+  #salutation{
+    margin-right: 10%;
+    margin-top: 3%;
+  }
+  #doomgeon-record-logo{
+    margin-right: 3%;
+    margin-top: 3%;
+    float: left;
+  }
+  #logo-login{
+    float: right;
+    margin-right: 3%;
+    margin-top: 3%;
+  }
+  #logo-logout{
+    float: right;
+    margin-right: 3%;
+    margin-top: 3%;
+  }

@@ -18,8 +18,27 @@ $(document).ready(function () {
     window.open("https://www.instagram.com/doomgeon_records/", "_blank");
   });
 
-  $("#doomgeon-record-logo").on("click", function () {
-    localStorage.setItem("ubication", "home");
+
+ 
+  $("body").on("click", ".contenedor-producto", function () {
+    var product = $(this)
+    .find(".img-artistas-relacionados")
+    .attr("title");
+
+    alert(product);
+  });
+
+
+  $("#logo-en-no-logged").on("click", function () {
+    localStorage.setItem("ubication", "home-no-logged");
+    location.reload();
+  });
+  $("#logo-logged").on("click", function () {
+    localStorage.setItem("ubication", "home-logged");
+    location.reload();
+  });
+  $("#logo-admin").on("click", function () {
+    localStorage.setItem("ubication", "usuarios");
     location.reload();
   });
 
@@ -97,7 +116,7 @@ $(document).ready(function () {
     $.ajax({
       url: "php/cerrarSesion.php",
       success: function () {
-        localStorage.setItem("ubication","home");
+        localStorage.setItem("ubication","home-no-logged");
         window.location.href = "index.html";
       },
       error: function (xhr) {
@@ -106,4 +125,27 @@ $(document).ready(function () {
     });
     });
 
+    $("body").on("click", ".band", function () {
+      var band = $(this)
+      .find(".band-artists-img")
+      .attr("title");
+    localStorage.setItem("ubication", band);
+    location.reload();
+    });
+    $("body").on("click", ".div-artistas-relacionados", function () {
+      var band = $(this)
+      .find(".img-artistas-relacionados")
+      .attr("title");
+    if(band=="Double Horse"){
+      localStorage.setItem("ubication", band);
+      location.reload();
+
+    }else if (band =="Bloody Crom"){
+      localStorage.setItem("ubication", band);
+      location.reload();
+    }else{
+      localStorage.setItem("ubication", band);
+      location.reload();
+    }
+});
 });

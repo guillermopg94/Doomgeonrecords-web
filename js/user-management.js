@@ -46,7 +46,7 @@ $(document).ready(function () {
             }
           },
           error: function (xhr) {
-            $("#mensaje1").append(xhr.statusText + xhr.responseText);
+            console.log("Error "+xhr+" insertando usuario.");
           },
         });
       }
@@ -75,12 +75,12 @@ $(document).ready(function () {
         console.log(resultado);
         if (resultado == "entra") {
 
-          localStorage.setItem("ubication", "home");
+          localStorage.setItem("ubication", "home-logged");
           window.location.href = "logged.html";
          
         } else if (resultado == "mal") {
 
-          localStorage.setItem("ubication", "home");
+          localStorage.setItem("ubication", "login");
           window.location.href = "index.html";
 
         } else if (resultado == "admin") {

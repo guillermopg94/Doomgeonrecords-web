@@ -37,11 +37,13 @@ $(document).ready(function () {
       var id_producto = JSON.stringify(x.id_producto);
 
       $(
-        "<div class='usuarios'>Artista<p>" +
+        "<div class='usuarios'>Nombre Merch<p>"+
+        x.nombre_producto +
+        "</p>Artista<p>" +
           x.nombre_artista +
-          "</p>CD:<p>" +
+          "</p>CD<p>" +
           x.cd_nombre +
-          "</p>Imagen CD:<p>" +
+          "</p>Imagen CD<p>" +
           x.cd_imagen +
           "</p><img src='assets/" +
           x.cd_imagen +
@@ -164,77 +166,82 @@ $(document).ready(function () {
       .parents("#contentAdmin .usuarios")
       .find(".eliminarProducto")
       .attr("name");
+      var nombre_producto = $(this)
+      .parents("#contentAdmin .usuarios")
+      .find("p:eq(0)")
+      .html();
       var nombreCD = $(this)
-        .parents("#contentAdmin .usuarios")
-        .find("p:eq(1)")
-        .html();
-      var imagenCD = $(this)
         .parents("#contentAdmin .usuarios")
         .find("p:eq(2)")
         .html();
-        var cd_cantidad = $(this)
+      var imagenCD = $(this)
         .parents("#contentAdmin .usuarios")
         .find("p:eq(3)")
         .html();
-        var nombreCasete = $(this)
+        var cd_cantidad = $(this)
         .parents("#contentAdmin .usuarios")
         .find("p:eq(4)")
         .html();
-        var imagenCasete = $(this)
+        var nombreCasete = $(this)
         .parents("#contentAdmin .usuarios")
         .find("p:eq(5)")
         .html();
-        var casete_cantidad = $(this)
+        var imagenCasete = $(this)
         .parents("#contentAdmin .usuarios")
         .find("p:eq(6)")
         .html();
-        var nombreVinilo = $(this)
+        var casete_cantidad = $(this)
         .parents("#contentAdmin .usuarios")
         .find("p:eq(7)")
         .html();
-        var imagenVinilo = $(this)
+        var nombreVinilo = $(this)
         .parents("#contentAdmin .usuarios")
         .find("p:eq(8)")
         .html();
-        var vinilo_cantidad = $(this)
+        var imagenVinilo = $(this)
         .parents("#contentAdmin .usuarios")
         .find("p:eq(9)")
         .html();
-        var nombreCamiseta = $(this)
+        var vinilo_cantidad = $(this)
         .parents("#contentAdmin .usuarios")
         .find("p:eq(10)")
         .html();
-        var imagenCamiseta = $(this)
+        var nombreCamiseta = $(this)
         .parents("#contentAdmin .usuarios")
         .find("p:eq(11)")
         .html();
-        var camiseta_cantidad = $(this)
+        var imagenCamiseta = $(this)
         .parents("#contentAdmin .usuarios")
         .find("p:eq(12)")
         .html();
-        var tallaXXL = $(this)
+        var camiseta_cantidad = $(this)
         .parents("#contentAdmin .usuarios")
         .find("p:eq(13)")
+        .html();
+        var tallaXXL = $(this)
+        .parents("#contentAdmin .usuarios")
+        .find("p:eq(14)")
         .html();
 
         var tallaXL = $(this)
         .parents("#contentAdmin .usuarios")
-        .find("p:eq(14)")
+        .find("p:eq(15)")
         .html();
         var tallaL = $(this)
         .parents("#contentAdmin .usuarios")
-        .find("p:eq(15)")
+        .find("p:eq(16)")
         .html();
         var tallaM = $(this)
         .parents("#contentAdmin .usuarios")
-        .find("p:eq(16)")
+        .find("p:eq(17)")
         .html();
         var tallaS = $(this)
         .parents("#contentAdmin .usuarios")
-        .find("p:eq(17)")
+        .find("p:eq(18)")
         .html();
       $("input[name=codigoProducto]").val(codigo);
       $("input[name=codigoArtista]").val(localStorage.getItem("select"));
+      $("input[name=nombreProducto]").val(nombre_producto);
       $("input[name=nombreCD]").val(nombreCD);
       $("input[name=cantidadCD]").val(cd_cantidad);
       $("input[name=imagenCD]").val(imagenCD);
