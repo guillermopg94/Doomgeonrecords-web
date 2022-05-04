@@ -82,7 +82,7 @@ $(document).ready(function() {
                   $("input").val("");
 
                
-                  localStorage.setItem("error", resultado);
+                  localStorage.setItem("errorInsertandoAlbumSucces", resultado);
 
                   if (resultado == "existe") {
                     $(

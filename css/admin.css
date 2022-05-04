@@ -1,3 +1,12 @@
+
+#contentAdmin{
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  display:block;
+  overflow:auto;
+  background-image: url("../assets/50010_label.jpg");
+}
 .usuarios{
     width: auto;
     height: auto;

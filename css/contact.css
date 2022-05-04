@@ -3,3 +3,21 @@
     height: auto;
     margin: 2%;
 }
+.contact-form {
+    width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    margin: 0 auto; }
+  
+  .contact-form input,
+  .contact-form button {
+    width: 100%;
+    margin-top: 1%;
+    border-radius: 3px; }
+
+    .div-iframe-contact{
+width: 100%;
+
+    }

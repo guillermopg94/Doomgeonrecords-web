@@ -1,8 +1,8 @@
-#footer{
+footer{
     width: 100%;
-    height: auto;
+
     margin: 0 auto;
-    display:block;
+  
     overflow:auto;
     background-color: #ffffff;
     padding-top: 5px;
@@ -14,5 +14,33 @@
   }
   #social_network{
     float: right;
-    margin-right: 15px;
+width: 20%;
+display: flex;
+justify-content: flex-end;
   }
+
+  .container-footer {
+    width: 100%;
+    background-color: #e6e4e4;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .section-footer {
+  
+  margin: 1%;
+  padding: 1%;
+}
+  
+  li {
+    list-style-type: none;
+ }
+  
+
+
+    @media (min-width: 992px) {
+
+    }
+     .buton-subcribe{
+       width:20%
+     }

@@ -105,17 +105,18 @@ $(document).ready(function () {
       "g"
     );
     var enoughRegex = new RegExp("(?=.{6,}).*", "g");
+
     if (false == enoughRegex.test($(this).val())) {
-      $("#passstrength").html("Más caracteres.").css("color", "red");
+      $("#passstrength").html(" <p>Su contraseña será más fuerte si incluye números, mayúsculas y minúsculas y un carácter especial.</p>").css("color", "red");
     } else if (strongRegex.test($(this).val())) {
       $("#passstrength").className = "ok";
       $("#passstrength").html("Seguridad fuerte").css("color", "green");
     } else if (mediumRegex.test($(this).val())) {
       $("#passstrength").className = "alert";
-      $("#passstrength").html("Seguridad media").css("color", "green");
+      $("#passstrength").html("Seguridad media <p>Su contraseña será más fuerte si incluye números, mayúsculas y minúsculas y un carácter especial.</p>").css("color", "green");
     } else {
       $("#passstrength").className = "error";
-      $("#passstrength").html("Seguridad débil").css("color", "red");
+      $("#passstrength").html("Seguridad débil  <p>Su contraseña será más fuerte si incluye números, mayúsculas y minúsculas y un carácter especial.</p>").css("color", "red");
     }
     return true;
   });

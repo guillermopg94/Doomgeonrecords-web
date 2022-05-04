@@ -5,72 +5,90 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="initial-scale=1">
     <link rel="shortcut icon" href="assets/logodoomgeonrecords.jpg">
-   
     <title>Doomgeon Records</title>
 </head>
 <body>
-<!-- Start Navigation Bar -->
-<div id="container"> 
+
+<div id="container">
+
   <div id="taskbar">
   <div id="logo-admin">
       <img src="assets/logodoomgeonrecords.jpg" alt="logo of Doomgeon Records">
   </div>
   <div id="salutation"></div>
   <div id="logo-logout">
-    <img src="assets/icons8-cierre-de-sesión-redondeado-hacia-abajo-50.png" alt="logo for log out">
+    <a href="">Log-out</a> <i class="fa-solid fa-arrow-right-from-bracket"></i>
   </div>
   </div>
-<div id="menu-container">
-
-<nav class="navbar js-navbar">
-  
-  <ul class="menu">
-    <li id="usuarios">
-      <a href="">USUARIOS </a>
-    </li>
-    <li id="artistas">
-      <a href="" >ARTISTAS </a>
-    </li>
-    <li id="album">
-      <a href="" >ALBUM</a>
-    </li>
-    <li id="productos">
-      <a href="">PRODUCTOS</a>
-    </li>
-    <li id="compras">
-      <a href="">COMPRAS</a>
-    </li>
-    <li id="imagenes">
-      <a href="">IMAGENES</a>
-    </li>
-  </ul>
-</nav>
-</div>
-<!-- /Navigation Bar -->
-<div id="contentAdmin"> 
-<!-- Dinamic Content of the site -->
-
-
-</div>
-<div id="footer">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid"  id="nav">
+    
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item" id="usuarios">
+            <a class="nav-link active"  href="" >USUARIOS</a>
+          </li>
+          <li class="nav-item" id="artistas">
+            <a class="nav-link active"  href=""
+              >ARTISTAS</a
+            >
+          </li>
+          <li class="nav-item" id="album">
+            <a class="nav-link active" aria-current="page" href=""
+              >ALBUM</a
+            >
+          </li>
+          <li class="nav-item" id="imagenes">
+            <a class="nav-link active" aria-current="page" href=""
+              >IMAGENES</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+<main id="contentAdmin"> </main>
+<footer>
   <div id="copy-right">
     © 2021 Doomgeon Records
   </div>
 
   <div id="social_network">
- <img src="assets/icons8-facebook-30.png" class="social-media-every-icon" id="facebook-icon" alt="logo of doomgeon records facebook by icons8" width="23" height="22">
- <img src="assets/icons8-instagram-30.png" class="social-media-every-icon" id="instagram-icon" alt="logo of doomgeon records instagram by icons8" width="23" height="22">
+    <i class="fa-brands fa-facebook" id="facebook-icon"></i>
+    <i class="fa-brands fa-instagram-square" id="instagram-icon" ></i>
 </div>
 </div>
-</div>
+</footer>
 </body>
-
+<link
+href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+rel="stylesheet"
+integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+crossorigin="anonymous"
+/>
+<script
+src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+crossorigin="anonymous"
+></script>
 <link rel="stylesheet" href="css/general.css">
 <link rel="stylesheet" href="css/admin.css">
 <link rel="stylesheet" href="css/menu.css">
 <link rel="stylesheet" href="css/taskbar.css">
 <link rel="stylesheet" href="css/footer.css">
 <link rel="stylesheet" href="css/dialogs.css">
+<link rel="stylesheet" href="css/login.css">
 <script src="js/jquery-3.6.0.min.js" type="text/javascript"></script>
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
@@ -91,8 +109,5 @@
      <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
      <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
-     
-   
- 
-   
+     <script src="https://kit.fontawesome.com/413b87e80b.js" crossorigin="anonymous"></script>
 </html>

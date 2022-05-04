@@ -1,12 +1,5 @@
 $(document).ready(function () {
-  $(".social-media-every-icon")
-    .mouseenter(function () {
-      $(this).animate({ width: "27px" }, 500, "linear");
-    })
-    .mouseleave(function () {
-      $(this).stop(true);
-      $(this).animate({ width: "23px" }, 500, "linear");
-    });
+
 
   $("#facebook-icon").on("click", function () {
     window.open(
@@ -18,8 +11,17 @@ $(document).ready(function () {
     window.open("https://www.instagram.com/doomgeon_records/", "_blank");
   });
 
+  $("body").on("click", ".register", function () {
 
- 
+localStorage.setItem("ubication", "register");
+location.reload();
+  });
+
+  $("body").on("click", ".a-login", function () {
+
+    localStorage.setItem("ubication", "login");
+    location.reload();
+      });
   $("body").on("click", ".contenedor-producto", function () {
     var product = $(this)
     .find(".img-artistas-relacionados")

@@ -17,13 +17,12 @@
     margin-top: 3%;
     float: left;
   }
-  #logo-login{
+
+  #logo-login, #logo-logout{
     float: right;
     margin-right: 3%;
     margin-top: 3%;
-  }
-  #logo-logout{
-    float: right;
-    margin-right: 3%;
-    margin-top: 3%;
+    width: 30%;
+    display: flex;
+    justify-content: flex-end;
   }

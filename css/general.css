@@ -1,6 +1,8 @@
-body {
+*{
   font-family: 'Germania One', cursive;
   font-size: x-large; 
+  text-decoration: none;
+  box-sizing: border-box;
 }
 ul {
   display: block;
@@ -43,24 +45,17 @@ select, input{
 }
 
 
-.navbarjs-navbar{
-  width: 100%;
-  height: auto;
-}
-#content{
+
+main{
   width: 100%;
   height: auto;
   margin: 0 auto;
   display:block;
   overflow:auto;
-  background-color: #dfdede;
+ 
+  
 }
 
-#contentAdmin{
-  width: 100%;
-  height: auto;
-  margin: 0 auto;
-  display:block;
-  overflow:auto;
-  background-image: url("../assets/50010_label.jpg");
+i{
+  margin: 1%;
 }
