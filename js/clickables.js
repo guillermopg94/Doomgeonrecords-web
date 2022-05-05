@@ -31,6 +31,8 @@ location.reload();
   });
 
 
+
+
   $("#logo-en-no-logged").on("click", function () {
     localStorage.setItem("ubication", "home-no-logged");
     location.reload();

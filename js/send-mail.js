@@ -6,7 +6,7 @@ $(document).ready(function() {
             $("#email-contact").val().indexOf("@", 0) == -1 ||
             $("#email-contact").val().indexOf(".", 0) == -1
           ) {
-            alert("El correo introducido no es correcto");
+            $("<div class='errorEmail' title='Error del correo'><p>El correo introducido no es correcto</p></div>").dialog();
           } else {
         var datos = $("#send-mail").serialize();
         $.ajax({

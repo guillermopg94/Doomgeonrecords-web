@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function ($) {
   $.noConflict();
 
   $("#btn-create").on("click", function (event) {
@@ -12,7 +12,7 @@ $(document).ready(function () {
         $("#email").val().indexOf("@", 0) == -1 ||
         $("#email").val().indexOf(".", 0) == -1
       ) {
-        $("<div id='errorEmail' title='Error del correo'><p>El correo introducido no es correcto</p></div>").dialog();
+        $("<div class='errorEmail' title='Error del correo'><p>El correo introducido no es correcto</p></div>").dialog();
       } else {
         localStorage.getItem("ha pasado los controles", "ok");
         var datos = $("#registro").serialize();

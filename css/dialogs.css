@@ -2,7 +2,7 @@
     color: green;
   }
 
-  #dialog-fields-adding-user,  #errorEmail,  #dialog-password-adding-user,  #dialog-exist,  #dialog-password{
+  #dialog-fields-adding-user,  .errorEmail,  #dialog-password-adding-user,  #dialog-exist,  #dialog-password{
     color: red;
   }
  

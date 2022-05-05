@@ -104,11 +104,13 @@
    
         <form class="subscribe">
             <input
-            
-              type="search"
+            id="emailNewsletter"
+              type="email"
+              required="required"
               placeholder="Email"
-            
+            name="email"
             />
+            <div class='g-recaptcha' data-sitekey='6Lc9W5YfAAAAAKGuAVi7XR0dHR0vpjsRZorXj0ol'></div>
             <button
               class="buton-subscribe"  
               type="submit"
@@ -148,6 +150,11 @@ crossorigin="anonymous"
 <link rel="stylesheet" href="css/artists.css">
 <link rel="stylesheet" href="css/footer.css">
 <link rel="stylesheet" href="css/contact.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+<script>  $(document).ready(function(){   $('.slider').bxSlider();});</script>
 <script src="js/jquery-3.6.0.min.js" type="text/javascript"></script>
 <script src="js/jquery-ui.min.js" type="text/javascript"></script>
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
@@ -165,10 +172,7 @@ crossorigin="anonymous"
 <link rel="stylesheet" href="css/popupConsent.css" />
 
 <script src="js/popupConsent.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
-<script>$(document).ready(function(){$('.slider').bxSlider();});</script>
+
 <script src="https://kit.fontawesome.com/413b87e80b.js" crossorigin="anonymous"></script>
 <script src='https://www.google.com/recaptcha/api.js'></script>
 </html>
