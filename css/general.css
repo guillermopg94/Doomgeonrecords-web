@@ -4,6 +4,18 @@
   text-decoration: none;
   box-sizing: border-box;
 }
+html {
+  scroll-behavior: smooth;
+  font-size: 100%;
+}
+
+body {
+  transition: all 0.15s ease-in-out;
+  overflow: overlay;
+  background: white;
+  margin: 0;
+  padding: 0;
+}
 ul {
   display: block;
   list-style-type: disc;
@@ -58,4 +70,7 @@ main{
 
 i{
   margin: 1%;
+}
+.h1-home{
+font-size: xx-large;
 }

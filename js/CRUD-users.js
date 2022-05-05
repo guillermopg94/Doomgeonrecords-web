@@ -75,13 +75,14 @@ id_usuario +
         type: "GET",
         url: "php/insertarUsuarioDesdeAdmin.php",
         data: datos,
-        success: function () {
+        success: function (resultado) {
+          localStorage.setItem("Error insertando usuario desde admin", resultado );
           $("input").val("");
       localStorage.setItem("ubication", "usuarios");
          location.reload();
         },
         error: function (xhr) {
-          localStorage.setItem("errorInsertandoUser", xhr);
+          localStorage.setItem("Error insertando usuario desde admin error", xhr );
         },
       });
     }

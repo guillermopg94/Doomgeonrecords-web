@@ -223,7 +223,6 @@ if(localStorage.getItem("ubication") == "Here the captain speaking, the captain 
 
 else if(localStorage.getItem("ubication")=="login"){
 
-
     $("<div id='register-div'><form id='login'><p>Nombre de usuario</p><input type='text' name='user' placeholder='Username' required='required'/>"+
     "<p>Contraseña</p><input type='password' name='pass' placeholder='Password' required='required' /><br><br><button class='boton' id='btn-login'>"+
     "Acceder</button><br></form><p class='p-login-register'>¿No tienes una cuenta creada? Puedes crearla &nbsp; <a href='' class='register'>aquí</a><p></div>").appendTo("main");
@@ -250,14 +249,17 @@ else if(localStorage.getItem("ubication")=="contact-no-logged"){
 
 else if(localStorage.getItem("ubication")=="home-no-logged"){
 
-
    function artistas(artista){
-    $("<div class='slider'></div>")
+    $("<h1 class='h1-home'>Doomgeon Records</h1><div class='slider'></div><p>Doomgeon Records se fundó en Valencia (España) "+
+    "en 2019 con la intención de editar y promocionar bandas locales de Rock Progresivo y otros estilos más duros "+
+    "como el Doom Metal o el Punk. La mirada del sello está puesta en bandas locales del género underground donde podemos "+
+    "encontrar sonidos potentes y transgresores. Actualmente ha editado ya a grupos como Double Horse, Bloody Crom y Here the "+
+    "Captain Speaking, the Captain is Dead, aunque pronto se unirán otros grupos a su lista.</p><br>")
     .appendTo("main");
     artista.sort(()=> Math.random() - 0.5);
 
         artista.forEach(element => {
-            $( "<div class='slider-div'><img src='assets/"+element.src+"' alt='"+element.name+" imagen' class='slider-img'> <h1> "+element.name+"</h1></div>")
+            $( "<div class='slider-div'><img src='assets/"+element.src+"' alt='"+element.name+" imagen' class='slider-img'></div>")
             .appendTo(".slider");
          });
          $('.slider').bxSlider({

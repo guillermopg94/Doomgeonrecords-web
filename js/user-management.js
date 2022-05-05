@@ -1,60 +1,57 @@
 $(document).ready(function () {
+  $.noConflict();
+
   $("#btn-create").on("click", function (event) {
+    event.preventDefault();
     if (
       $("#pass").val() == $("#passAgain").val() &&
-      ($("#passstrength").html() == "Seguridad media" ||
+      ($("#passstrength").html() == "Seguridad media <p>Su contraseña será más fuerte si incluye números, mayúsculas y minúsculas y un carácter especial.</p>" ||
         $("#passstrength").html() == "Seguridad fuerte")
     ) {
-      if (
+       if (
         $("#email").val().indexOf("@", 0) == -1 ||
         $("#email").val().indexOf(".", 0) == -1
       ) {
-        alert("El correo introducido no es correcto");
+        $("<div id='errorEmail' title='Error del correo'><p>El correo introducido no es correcto</p></div>").dialog();
       } else {
+        localStorage.getItem("ha pasado los controles", "ok");
         var datos = $("#registro").serialize();
-        event.preventDefault();
+      
         $.ajax({
           type: "GET",
           url: "php/insertarUsuario.php",
           data: datos,
           success: function (resultado) {
+            localStorage.setItem("ErrorCreandoUsuarioSuccesantesif", resultado);
             if (resultado == "existe") {
+              localStorage.setItem("ErrorCreandoUsuarioSucces", resultado);
               $(
                 "<div id='dialog-exist' title='User Error'><p>Ese nombre no está disponible.</p></div>"
-              ).appendTo("#content");
+              ).appendTo("main");
               $("#dialog-exist").dialog({
                 modal: true,
                 draggable: true,
               });
             } else {
-              $("input[name=codigo]").val("");
-              $("input[name=user]").val("");
-              $("input[name=nombre]").val("");
-              $("input[name=img]").val("");
-              $("input[name=primerapellido]").val("");
-              $("input[name=segundoapellido]").val("");
-              $("input[name=email]").val("");
-              $("input[name=pass]").val("");
-              $("input[name=passAgain]").val("");
+              localStorage.setItem("ErrorCreandoUsuarioSuccess", resultado);
+              $("input").val("");
+             
+             
               $(
-                "<div id='dialog-created' title='User created'><p>Hola, tu usuario se ha creado correctamente, ya puedes loguearte. Gracias.</p></div>"
-              ).appendTo("#content");
-              $("#dialog-created").dialog({
-                modal: true,
-                draggable: true,
-              });
+                "<div id='dialog-created' title='Usuario creado'><p>Tu usuario se ha creado correctamente. Gracias.</p></div>"
+              ).appendTo("main");
+              $("#dialog-created").dialog();
             }
           },
           error: function (xhr) {
-            console.log("Error "+xhr+" insertando usuario.");
+            localStorage.setItem("ErrorCreandoUsuario", xhr);
           },
         });
       }
     } else {
       $(
-        "<div id='dialog-password' title='Password Error'><p>La contraseña no coincide o es demasiado débil.</p></div>"
-      ).appendTo("#content");
-      $("#dialog-password").dialog({
+        "<div id='dialog-password' title='Error de contraseña'><p>La contraseña no coincide o es demasiado débil.</p></div>"
+      ).appendTo("main").dialog({
         modal: true,
         draggable: true,
       });
@@ -90,7 +87,7 @@ $(document).ready(function () {
         }
       },
       error: function (xhr) {
-        $("#mensaje1").append(xhr.statusText + xhr.responseText);
+   localStorage.setItem("Error en login");
       },
     });
   });

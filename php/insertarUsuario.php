@@ -25,8 +25,9 @@ $sql_insert = "INSERT INTO usuario (nombre, email, pass, tipo, primerapellido, s
 
 $res = $MySQL->query($sql_insert);
 
+mail($email, 'Doomgeon Records', 'Hola '. $nombre .' ' . $primerApellido . ' '. $segundoApellido . ' bienvenid@ a Doomgeon Records. Tu nombre de usuario es '. $user . '');
 
-echo $NumerodeColumnas;
+echo $res;
 }else{
     echo "existe";
 }

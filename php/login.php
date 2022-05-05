@@ -20,6 +20,7 @@ if(isset($row["pass"]) == $pass && $user == "admin" && $row["tipo"]=="admin" ){
  echo "admin";
 } else if(isset($row["pass"]) == $pass && $user != "admin"){
     $_SESSION["Usuario"] = $user;
+
     echo "entra";
 }else{
     echo "mal";

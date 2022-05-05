@@ -22,12 +22,13 @@ $NumerodeColumnas=mysqli_num_rows($sqlUserExiste);
 if($NumerodeColumnas==0)
 {
 
-$sql_insert = "INSERT INTO usuario (nombre, email, pass, tipo, primerapellido, segundoapellido, user) VALUES ('$nombre','$email', '$pass', '$tipo', '$primerApellido', '$segundoApellido','$user')";
+$sql_insert = "INSERT INTO usuario (nombre, email, pass, tipo, primerapellido, segundoapellido, user) VALUES ('$nombre', '$email', '$pass', '$tipo', '$primerApellido', '$segundoApellido','$user')";
 
 $res = $MySQL->query($sql_insert);
 
 
-echo $NumerodeColumnas;
+
+echo $res;
 }else{
     echo "existe";
 }

@@ -6,20 +6,33 @@
   -webkit-tap-highlight-color: transparent;
 }
 
-html {
-  scroll-behavior: smooth;
-  font-size: 100%;
-}
 
-body {
-  transition: all 0.15s ease-in-out;
-  overflow: overlay;
-  background: white;
-  margin: 0;
-  padding: 0;
-}
 
 /* Popup */
+
+.slider-div{
+  height: 700px;
+
+}
+.bx-viewport{
+  height: max-content;
+}
+.slider-img{
+  width:100%;
+  height:100%;
+}
+
+@media (max-width: 992px) {
+  .slider-div{
+    height: 150px;
+  
+  }
+  .slider-img{
+    width:100%;
+    height:auto;
+  }
+}
+
 
 .c-ripple {
   position: absolute;
