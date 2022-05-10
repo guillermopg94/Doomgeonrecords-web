@@ -37,16 +37,19 @@ location.reload();
         window.open("https://santich.com.es/es/camisetas/12-camiseta-de-double-horse.html", "_blank");
       });
       $("body").on("click", "#casete-bc", function () {
-        window.open("https://santich.com.es/es/casetes/11-casete-bloody-crom.html", "_blank");
+        window.open("https://santich.com.es/es/8-casetes", "_blank");
       });
       $("body").on("click", "#casete-captain", function () {
-        window.open("https://santich.com.es/es/casetes/15-casete-here-the-captain-speaking-the-captain-is-dead-flux-capacitor.html", "_blank");
+        window.open("https://santich.com.es/es/8-casetes", "_blank");
       });
       $("body").on("click", "#vinilo-captain", function () {
         window.open("https://santich.com.es/es/vinilos/16-vinilo-here-the-captain-speaking-the-captain-is-dead.html", "_blank");
       });
       $("body").on("click", "#camiseta-captain", function () {
         window.open("https://santich.com.es/es/camisetas/10-camiseta-de-here-the-captain-speaking-the-captain-is-dead.html", "_blank");
+      });
+      $("body").on("click", "#camiseta-bc", function () {
+        window.open("https://santich.com.es/es/camisetas/9-9-camiseta-bloody-crom.html#/37-talla-s", "_blank");
       });
 
 

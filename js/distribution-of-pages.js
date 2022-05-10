@@ -1,9 +1,16 @@
 $(document).ready(function() {
 
-    
    
     var arrayArtista = [];
-    var arrayMerch = [];
+    var arrayCds = [];
+    var arrayCasetes = [];
+    var arrayCamisetas = [];
+    var arrayVinilos = [];
+ 
+
+
+
+
 
     $.ajax({
         type: "GET",
@@ -25,25 +32,85 @@ $(document).ready(function() {
           localStorage.setItem("errorMostrandoArtista", xhr);
         },
       });
-
+    
       $.ajax({
         type: "GET",
-        url: "php/mostrarProductos.php",
+        url: "php/mostrarCds.php",
         dataType: "json",
         success: function (resultado) {
          
           for (var x of resultado) {
             JSON.stringify(x);
         
-            arrayMerch.push({ cd_nombre: x.cd_nombre, casete_nombre: x.casete_nombre, vinilo_nombre: x.vinilo_nombre, camiseta_nombre:x.camiseta_nombre, cd_imagen:x.cd_imagen, casete_imagen:x.casete_imagen, vinilo_imagen:x.vinilo_imagen, camiseta_imagen:x.camiseta_imagen, cd_cantidad:x.cd_cantidad, casete_cantidad:x.casete_cantidad, vinilo_cantidad:x.vinilo_cantidad, camiseta_cantidad:x.camiseta_cantidad, id_artistas:x.id_artistas, tallaXXL:x.tallaXXL, tallaXL:x.tallaXL, tallaL:x.tallaL, tallaM:x.tallaM, tallaS:x.tallaS, nombre_producto:x.nombre_producto });
+            arrayCds.push({ cd_nombre: x.nombre, id_artista:x.id_artista, img_cd:x.imagen_cd });
          
           }
       
-          merch (arrayMerch);
+          mostrarCDs (arrayCds);
         
         },
         error: function (xhr) {
-          localStorage.setItem("errorMostrandoProducto", xhr);
+          localStorage.setItem("errorMostrandoCD", xhr);
+        },
+      });
+      $.ajax({
+        type: "GET",
+        url: "php/mostrarCasetes.php",
+        dataType: "json",
+        success: function (resultado) {
+         
+          for (var x of resultado) {
+            JSON.stringify(x);
+        
+            arrayCasetes.push({ casete_nombre: x.nombre, id_artista:x.id_artista, img_casete:x.imagen_casete  });
+         
+          }
+      
+          mostrarCasetes (arrayCasetes);
+        
+        },
+        error: function (xhr) {
+          localStorage.setItem("errorMostrandoCasete", xhr);
+        },
+      });
+      $.ajax({
+        type: "GET",
+        url: "php/mostrarCamisetas.php",
+        dataType: "json",
+        success: function (resultado) {
+         
+          for (var x of resultado) {
+            JSON.stringify(x);
+        
+            arrayCamisetas.push({ camiseta_nombre: x.nombre, id_artista:x.id_artista, img_camiseta:x.imagen_camiseta });
+         
+          }
+      
+          mostrarCamisetas (arrayCamisetas);
+        
+        },
+        error: function (xhr) {
+          localStorage.setItem("errorMostrandoCamisetas", xhr);
+        },
+      });
+      $.ajax({
+        type: "GET",
+        url: "php/mostrarVinilos.php",
+        dataType: "json",
+        success: function (resultado) {
+         
+          for (var x of resultado) {
+            JSON.stringify(x);
+        
+            arrayVinilos.push({ vinilo_nombre: x.nombre, id_artista:x.id_artista, img_cd:x.imagen_cd, img_vinilo:x.imagen_vinilo });
+         
+          }
+      
+          mostrarVinilos (arrayVinilos);
+        
+        },
+        error: function (xhr) {
+          localStorage.setItem("errorMostrandoVinilos", xhr);
         },
       });
 
@@ -72,7 +139,7 @@ $("</br></br><h1>Artistas relacionados:</h1>").appendTo(".content-extension");
                   " “Valhala Rising” de Nicolas Winding. Actualmente preparan un segundo disco de larga duración."+
                   " A lo largo de su trayectoria han compartido escenario con bandas nacionales como Udol, Grajo,"+
                   " Santo Rostro, Electric Monolith, Traidor, Rosy Finch, Saturna, Domo y muchas más. Así como con bandas internacionales como WitchThroat Serpent y Belzebong."+
-                  "</br></br><i class='fa-brands fa-bandcamp'></i></div><a href='"+element.bandcamp+"' target='_blank'>Bandcamp de "+element.name+"</a><br><i class='fa-brands fa-facebook'></i><a href='"+element.facebook+"' target='_blank'>Facebook de "+element.name+"</a><br><i class='fa-brands fa-instagram-square'></i><a href='"+element.instagram+"' target='_blank'> Instagram de "+element.name+" </a> </p>"+
+                  "</br></br></div><i class='fa-brands fa-bandcamp'></i><a href='"+element.bandcamp+"' target='_blank'>Bandcamp de "+element.name+"</a><br><i class='fa-brands fa-facebook'></i><a href='"+element.facebook+"' target='_blank'>Facebook de "+element.name+"</a><br><i class='fa-brands fa-instagram-square'></i><a href='"+element.instagram+"' target='_blank'> Instagram de "+element.name+" </a> </p>"+
                   "</div><div class='video-youtube'><iframe width='560' height='315' title='Youtube video of Double Horse'"+
                   "src='https://www.youtube.com/embed/zaXxjvTJ684' frameborder='0' allow='ccelerometer; autoplay; clipboard-write;"+
                   " encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe></div><iframe style='order-radius:12px'"+
@@ -93,17 +160,69 @@ $("</br></br><h1>Artistas relacionados:</h1>").appendTo(".content-extension");
             }        
     })
 }
-    function merch(arrayMerch){
+    function mostrarCDs(arrayMerch){
 
         arrayMerch.forEach(element => {
-            if(element.nombre_producto == "Double Horse"){
-                $("<div class='contenedor-producto' id='cd-dh'><div class='div-productos-relacionados'><img src='assets/"+element.cd_imagen+"' alt='"+element.cd_nombre+"' title='"+element.cd_nombre+"' class='img-artistas-relacionados'></div><div class='name-product'> <p> "+element.cd_nombre+"</p></div></div>"+
-                "<div class='contenedor-producto' id='casete-dh'><div class='div-productos-relacionados'><img src='assets/"+element.casete_imagen+"' alt='"+element.casete_nombre+"' title='"+element.casete_nombre+"' class='img-artistas-relacionados'></div><div class='name-product'> <p> "+element.casete_nombre+"</p></div></div>"+
-                "<div class='contenedor-producto' id='vinilo-dh'><div class='div-productos-relacionados'><img src='assets/"+element.vinilo_imagen+"' alt='"+element.vinilo_nombre+"' title='"+element.vinilo_nombre+"' class='img-artistas-relacionados'></div><div class='name-product'> <p> "+element.vinilo_nombre+"</p></div></div>"+
-                "<div class='contenedor-producto' id='camiseta-dh'><div class='div-productos-relacionados'><img src='assets/"+element.camiseta_imagen+"' alt='"+element.camiseta_nombre+"' title='"+element.camiseta_nombre+"' class='img-artistas-relacionados'></div><div class='name-product'> <p> "+element.camiseta_nombre+"</p></div></div>"
+            if(element.id_artista == 5){
+                $("<div class='contenedor-producto' id='cd-dh'><div class='div-productos-relacionados'><img src='assets/"+element.img_cd+"' alt='"+element.cd_nombre+"' class='img-artistas-relacionados'></div><div class='name-product'> <p> "+element.cd_nombre+"</p></div></div>"
                 ).appendTo("main");
             }
     })
+    $(".img-artistas-relacionados").mouseenter(function(){ 
+        $(this).animate({ width: "105%", height: "105%"}, 500, "linear");
+       });
+       $(".img-artistas-relacionados").mouseleave(function(){ 
+           $(this).stop(true);
+           $(this).animate({ width: "100%", height: "100%"}, 500, "linear");
+       });
+}
+function mostrarCasetes(arrayMerch){
+
+    arrayMerch.forEach(element => {
+        if(element.id_artista == 5){
+            $("<div class='contenedor-producto' id='casete-dh'><div class='div-productos-relacionados'><img src='assets/"+element.img_casete+"' alt='"+element.casete_nombre+"' class='img-artistas-relacionados'></div><div class='name-product'> <p> "+element.casete_nombre+"</p></div></div>"
+            ).appendTo("main");
+        }
+})
+$(".img-artistas-relacionados").mouseenter(function(){ 
+    $(this).animate({ width: "105%", height: "105%"}, 500, "linear");
+   });
+   $(".img-artistas-relacionados").mouseleave(function(){ 
+       $(this).stop(true);
+       $(this).animate({ width: "100%", height: "100%"}, 500, "linear");
+   });
+}
+function mostrarVinilos(arrayMerch){
+
+    arrayMerch.forEach(element => {
+        if(element.id_artista == 5){
+            $("<div class='contenedor-producto' id='vinilo-dh'><div class='div-productos-relacionados'><img src='assets/"+element.img_vinilo+"' alt='"+element.vinilo_nombre+"' class='img-artistas-relacionados'></div><div class='name-product'> <p> "+element.vinilo_nombre+"</p></div></div>"
+            ).appendTo("main");
+        }
+})
+$(".img-artistas-relacionados").mouseenter(function(){ 
+    $(this).animate({ width: "105%", height: "105%"}, 500, "linear");
+   });
+   $(".img-artistas-relacionados").mouseleave(function(){ 
+       $(this).stop(true);
+       $(this).animate({ width: "100%", height: "100%"}, 500, "linear");
+   });
+}
+function mostrarCamisetas(arrayMerch){
+
+    arrayMerch.forEach(element => {
+        if(element.id_artista == 5){
+            $("<div class='contenedor-producto' id='camiseta-dh'><div class='div-productos-relacionados'><img src='assets/"+element.img_camiseta+"' alt='"+element.camiseta_nombre+"'  class='img-artistas-relacionados'></div><div class='name-product'> <p> "+element.camiseta_nombre+"</p></div></div>"
+            ).appendTo("main");
+        }
+})
+$(".img-artistas-relacionados").mouseenter(function(){ 
+    $(this).animate({ width: "105%", height: "105%"}, 500, "linear");
+   });
+   $(".img-artistas-relacionados").mouseleave(function(){ 
+       $(this).stop(true);
+       $(this).animate({ width: "100%", height: "100%"}, 500, "linear");
+   });
 }
 }else 
 if(localStorage.getItem("ubication") == "Bloody Crom"){
@@ -134,18 +253,38 @@ if(localStorage.getItem("ubication") == "Bloody Crom"){
         });
     }
 
-    function merch(arrayMerch){
+  
+function mostrarCasetes(arrayMerch){
 
-        arrayMerch.forEach(element => {
-            if(element.nombre_producto == "Bloody Crom"){
-                $("<div class='contenedor-producto' id='casete-bc'><div class='div-productos-relacionados'><img src='assets/"+element.casete_imagen+"' alt='"+element.casete_nombre+"' title='"+element.casete_nombre+"' class='img-artistas-relacionados'></div><div class='name-product'> <p> "+element.casete_nombre+"</p></div></div>"
-                ).appendTo("main");
-            }
+    arrayMerch.forEach(element => {
+        if(element.id_artista == 7){
+            $("<div class='contenedor-producto' id='casete-bc'><div class='div-productos-relacionados'><img src='assets/"+element.img_casete+"' alt='"+element.casete_nombre+"' class='img-artistas-relacionados'></div><div class='name-product'> <p> "+element.casete_nombre+"</p></div></div>"
+            ).appendTo("main");
+        }
+})
+$(".img-artistas-relacionados").mouseenter(function(){ 
+    $(this).animate({ width: "105%", height: "105%"}, 500, "linear");
+   });
+   $(".img-artistas-relacionados").mouseleave(function(){ 
+       $(this).stop(true);
+       $(this).animate({ width: "100%", height: "100%"}, 500, "linear");
+   });
+}
+function mostrarCamisetas(arrayMerch){
 
-
-    })
-
-
+    arrayMerch.forEach(element => {
+        if(element.id_artista == 7){
+            $("<div class='contenedor-producto' id='camiseta-bc'><div class='div-productos-relacionados'><img src='assets/"+element.img_camiseta+"' alt='"+element.camiseta_nombre+"'  class='img-artistas-relacionados'></div><div class='name-product'> <p> "+element.camiseta_nombre+"</p></div></div>"
+            ).appendTo("main");
+        }
+})
+$(".img-artistas-relacionados").mouseenter(function(){ 
+    $(this).animate({ width: "105%", height: "105%"}, 500, "linear");
+   });
+   $(".img-artistas-relacionados").mouseleave(function(){ 
+       $(this).stop(true);
+       $(this).animate({ width: "100%", height: "100%"}, 500, "linear");
+   });
 }
 
 } else
@@ -193,20 +332,54 @@ if(localStorage.getItem("ubication") == "Here the captain speaking, the captain 
             }
         });
     }
-    function merch(arrayMerch){
+ 
+function mostrarCasetes(arrayMerch){
 
-        arrayMerch.forEach(element => {
-            if(element.nombre_producto == "Here the captain speaking, the captain is dead"){
-                $("<div class='contenedor-producto'><div class='div-productos-relacionados'><img src='assets/"+element.casete_imagen+"' alt='"+element.casete_nombre+"' title='"+element.casete_nombre+"' class='img-artistas-relacionados'></div><div class='name-product'> <p> "+element.casete_nombre+"</p></div></div>"+
-                "<div class='contenedor-producto'><div class='div-productos-relacionados'><img src='assets/"+element.vinilo_imagen+"' alt='"+element.vinilo_nombre+"' title='"+element.vinilo_nombre+"' class='img-artistas-relacionados'></div><div class='name-product'> <p> "+element.vinilo_nombre+"</p></div></div>"+
-                "<div class='contenedor-producto'><div class='div-productos-relacionados'><img src='assets/"+element.camiseta_imagen+"' alt='"+element.camiseta_nombre+"' title='"+element.camiseta_nombre+"' class='img-artistas-relacionados'></div><div class='name-product'> <p> "+element.camiseta_nombre+"</p></div></div>"
-                ).appendTo("main");
-            }
+    arrayMerch.forEach(element => {
+        if(element.id_artista == 8){
+            $("<div class='contenedor-producto' id='casete-captain'><div class='div-productos-relacionados'><img src='assets/"+element.img_casete+"' alt='"+element.casete_nombre+"' class='img-artistas-relacionados'></div><div class='name-product'> <p> "+element.casete_nombre+"</p></div></div>"
+            ).appendTo("main");
+        }
+})
+$(".img-artistas-relacionados").mouseenter(function(){ 
+    $(this).animate({ width: "105%", height: "105%"}, 500, "linear");
+   });
+   $(".img-artistas-relacionados").mouseleave(function(){ 
+       $(this).stop(true);
+       $(this).animate({ width: "100%", height: "100%"}, 500, "linear");
+   });
+}
+function mostrarVinilos(arrayMerch){
 
+    arrayMerch.forEach(element => {
+        if(element.id_artista == 8){
+            $("<div class='contenedor-producto' id='vinilo-captain'><div class='div-productos-relacionados'><img src='assets/"+element.img_vinilo+"' alt='"+element.vinilo_nombre+"' class='img-artistas-relacionados'></div><div class='name-product'> <p> "+element.vinilo_nombre+"</p></div></div>"
+            ).appendTo("main");
+        }
+})
+$(".img-artistas-relacionados").mouseenter(function(){ 
+    $(this).animate({ width: "105%", height: "105%"}, 500, "linear");
+   });
+   $(".img-artistas-relacionados").mouseleave(function(){ 
+       $(this).stop(true);
+       $(this).animate({ width: "100%", height: "100%"}, 500, "linear");
+   });
+}
+function mostrarCamisetas(arrayMerch){
 
-    })
-
-
+    arrayMerch.forEach(element => {
+        if(element.id_artista == 8){
+            $("<div class='contenedor-producto' id='camiseta-captain'><div class='div-productos-relacionados'><img src='assets/"+element.img_camiseta+"' alt='"+element.camiseta_nombre+"'  class='img-artistas-relacionados'></div><div class='name-product'> <p> "+element.camiseta_nombre+"</p></div></div>"
+            ).appendTo("main");
+        }
+})
+$(".img-artistas-relacionados").mouseenter(function(){ 
+    $(this).animate({ width: "105%", height: "105%"}, 500, "linear");
+   });
+   $(".img-artistas-relacionados").mouseleave(function(){ 
+       $(this).stop(true);
+       $(this).animate({ width: "100%", height: "100%"}, 500, "linear");
+   });
 }
 
 }
@@ -250,11 +423,11 @@ else if(localStorage.getItem("ubication")=="contact-no-logged"){
 else if(localStorage.getItem("ubication")=="home-no-logged"){
 
    function artistas(artista){
-    $("<h1 class='h1-home'>Doomgeon Records</h1><div class='slider'></div><p>Doomgeon Records se fundó en Valencia (España) "+
+    $("<h1 class='h1-home'>Doomgeon Records</h1><div class='slider'></div><p>Esta es la página web oficial de Doomgeon Records, un sello discográfico que se fundó en Valencia (España) "+
     "en 2019 con la intención de editar y promocionar bandas locales de Rock Progresivo y otros estilos más duros "+
     "como el Doom Metal o el Punk. La mirada del sello está puesta en bandas locales del género underground donde podemos "+
     "encontrar sonidos potentes y transgresores. Actualmente ha editado ya a grupos como Double Horse, Bloody Crom y Here the "+
-    "Captain Speaking, the Captain is Dead, aunque pronto se unirán otros grupos a su lista.</p><br>")
+    "Captain Speaking, the Captain is Dead, aunque pronto se unirán otros grupos a su lista.<br>En esta web encontrás la <a href='https://santich.com.es/es/' target='_blank'>tienda oficial</a> del sello, la cual está enfocada a la venta de los productos de merchandising y también a los discos de las bandas que componen el sello de Doomgeon Records. Aquí podrás encontrar una gama de productos compuesta por cds, casetes, vinilos y camisetas. Con la venta de estos productos estarás apoyando a nuestras bandas y a ayudarás a mantener una rica cultura musical local y underground.</p>")
     .appendTo("main");
     artista.sort(()=> Math.random() - 0.5);
 
