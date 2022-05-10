@@ -1,16 +1,17 @@
 
-$(document).ready(function () {
-
-$("body").on("click", ".buton-subscribe", function () {
- 
+$(document).ready(function ($) {
+  $.noConflict();
+    
+      $("input#buton-subscribe").on("click", function (event) {
+      event.preventDefault();
   if (
     $("#emailNewsletter").val().indexOf("@", 0) == -1 ||
     $("#emailNewsletter").val().indexOf(".", 0) == -1
   ){
-    $("<div id='errorEmail' title='Error del correo'><p>El correo introducido no es correcto</p></div>").dialog();
+    $("<div class='errorEmail' title='Error del correo'><p>El correo introducido no es correcto</p></div>").appendTo("main").dialog();
   } else {
-    localStorage.setItem("errorNewsletterEntraenIf", resultado);
-    var datos = $(".subscribe").serialize();
+ 
+    var datos = $("#subscribe").serialize();
     $.ajax({
       type: "POST",
       url: "php/newsletter.php",
@@ -18,10 +19,10 @@ $("body").on("click", ".buton-subscribe", function () {
       success: function (resultado) {
     
         $("input").val("");
+        location.reload();
+        $("<div id='okNewsletter' title='Suscrito'><p>Gracias por subscribirte!</p></div>").appendTo("main").dialog();
+        localStorage.setItem("errorNewsletterSucces",resultado);
     
-     
-        localStorage.setItem("errorNewsletterSucces", resultado);
-       location.reload();
     
       },
         error: function (xhr) {

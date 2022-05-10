@@ -22,14 +22,32 @@ location.reload();
     localStorage.setItem("ubication", "login");
     location.reload();
       });
-  $("body").on("click", ".contenedor-producto", function () {
-    var product = $(this)
-    .find(".img-artistas-relacionados")
-    .attr("title");
 
-    alert(product);
-  });
+      $("body").on("click", "#cd-dh", function () {
+        window.open("https://santich.com.es/es/cds/14-cd-double-horse.html", "_blank");
+      });
+      $("body").on("click", "#casete-dh", function () {
+        window.open("https://santich.com.es/es/casetes/13-casete-double-horse.html", "_blank");
+      });
+      $("body").on("click", "#vinilo-dh", function () {
+        window.open("https://santich.com.es/es/vinilos/17-vinilo-double-horse.html", "_blank");
 
+      });
+      $("body").on("click", "#camiseta-dh", function () {
+        window.open("https://santich.com.es/es/camisetas/12-camiseta-de-double-horse.html", "_blank");
+      });
+      $("body").on("click", "#casete-bc", function () {
+        window.open("https://santich.com.es/es/casetes/11-casete-bloody-crom.html", "_blank");
+      });
+      $("body").on("click", "#casete-captain", function () {
+        window.open("https://santich.com.es/es/casetes/15-casete-here-the-captain-speaking-the-captain-is-dead-flux-capacitor.html", "_blank");
+      });
+      $("body").on("click", "#vinilo-captain", function () {
+        window.open("https://santich.com.es/es/vinilos/16-vinilo-here-the-captain-speaking-the-captain-is-dead.html", "_blank");
+      });
+      $("body").on("click", "#camiseta-captain", function () {
+        window.open("https://santich.com.es/es/camisetas/10-camiseta-de-here-the-captain-speaking-the-captain-is-dead.html", "_blank");
+      });
 
 
 

@@ -1,10 +1,11 @@
 <?php
+      
 
-if ($_POST['g-recaptcha-response'] == '') {
+ if ($_POST['g-recaptcha-response'] == '') {
     echo "Captcha invalido";
     } else {
     $obj = new stdClass();
-    $obj->secret = "6Lc9W5YfAAAAAF4WL5cD3LjltxsszyMH9Re1XPxq";
+    $obj->secret = "6LetZsgfAAAAAHknQNVPsQpTO7R65Q3rC9XDaOuA";
     $obj->response = $_POST['g-recaptcha-response'];
     $obj->remoteip = $_SERVER['REMOTE_ADDR'];
     $url = 'https://www.google.com/recaptcha/api/siteverify';
@@ -25,12 +26,12 @@ if ($_POST['g-recaptcha-response'] == '') {
     
     if ($validar->success) {
 
+        $email = $_POST['email'];
 
-$email = $_POST['email'];
-
-$fp = fopen('file.txt', 'a');
-fwrite($file, $email . PHP_EOL);
-fclose($fp);
+        $fp = fopen('file.txt', 'a');
+        fwrite($fp, $email . PHP_EOL);
+        fclose($fp);
+ echo $email;
 
 } else {
     echo "Captcha invalido";

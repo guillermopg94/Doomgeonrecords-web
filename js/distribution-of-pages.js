@@ -97,10 +97,10 @@ $("</br></br><h1>Artistas relacionados:</h1>").appendTo(".content-extension");
 
         arrayMerch.forEach(element => {
             if(element.nombre_producto == "Double Horse"){
-                $("<div class='contenedor-producto'><div class='div-productos-relacionados'><img src='assets/"+element.cd_imagen+"' alt='"+element.cd_nombre+"' title='"+element.cd_nombre+"' class='img-artistas-relacionados'></div><div class='name-product'> <p> "+element.cd_nombre+"</p></div></div>"+
-                "<div class='contenedor-producto'><div class='div-productos-relacionados'><img src='assets/"+element.casete_imagen+"' alt='"+element.casete_nombre+"' title='"+element.casete_nombre+"' class='img-artistas-relacionados'></div><div class='name-product'> <p> "+element.casete_nombre+"</p></div></div>"+
-                "<div class='contenedor-producto'><div class='div-productos-relacionados'><img src='assets/"+element.vinilo_imagen+"' alt='"+element.vinilo_nombre+"' title='"+element.vinilo_nombre+"' class='img-artistas-relacionados'></div><div class='name-product'> <p> "+element.vinilo_nombre+"</p></div></div>"+
-                "<div class='contenedor-producto'><div class='div-productos-relacionados'><img src='assets/"+element.camiseta_imagen+"' alt='"+element.camiseta_nombre+"' title='"+element.camiseta_nombre+"' class='img-artistas-relacionados'></div><div class='name-product'> <p> "+element.camiseta_nombre+"</p></div></div>"
+                $("<div class='contenedor-producto' id='cd-dh'><div class='div-productos-relacionados'><img src='assets/"+element.cd_imagen+"' alt='"+element.cd_nombre+"' title='"+element.cd_nombre+"' class='img-artistas-relacionados'></div><div class='name-product'> <p> "+element.cd_nombre+"</p></div></div>"+
+                "<div class='contenedor-producto' id='casete-dh'><div class='div-productos-relacionados'><img src='assets/"+element.casete_imagen+"' alt='"+element.casete_nombre+"' title='"+element.casete_nombre+"' class='img-artistas-relacionados'></div><div class='name-product'> <p> "+element.casete_nombre+"</p></div></div>"+
+                "<div class='contenedor-producto' id='vinilo-dh'><div class='div-productos-relacionados'><img src='assets/"+element.vinilo_imagen+"' alt='"+element.vinilo_nombre+"' title='"+element.vinilo_nombre+"' class='img-artistas-relacionados'></div><div class='name-product'> <p> "+element.vinilo_nombre+"</p></div></div>"+
+                "<div class='contenedor-producto' id='camiseta-dh'><div class='div-productos-relacionados'><img src='assets/"+element.camiseta_imagen+"' alt='"+element.camiseta_nombre+"' title='"+element.camiseta_nombre+"' class='img-artistas-relacionados'></div><div class='name-product'> <p> "+element.camiseta_nombre+"</p></div></div>"
                 ).appendTo("main");
             }
     })
@@ -138,7 +138,7 @@ if(localStorage.getItem("ubication") == "Bloody Crom"){
 
         arrayMerch.forEach(element => {
             if(element.nombre_producto == "Bloody Crom"){
-                $("<div class='contenedor-producto'><div class='div-productos-relacionados'><img src='assets/"+element.casete_imagen+"' alt='"+element.casete_nombre+"' title='"+element.casete_nombre+"' class='img-artistas-relacionados'></div><div class='name-product'> <p> "+element.casete_nombre+"</p></div></div>"
+                $("<div class='contenedor-producto' id='casete-bc'><div class='div-productos-relacionados'><img src='assets/"+element.casete_imagen+"' alt='"+element.casete_nombre+"' title='"+element.casete_nombre+"' class='img-artistas-relacionados'></div><div class='name-product'> <p> "+element.casete_nombre+"</p></div></div>"
                 ).appendTo("main");
             }
 
