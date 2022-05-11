@@ -5,7 +5,7 @@ include("conexion.php");
 $MySQLConnection = new ConnectionDB();
 $MySQL = $MySQLConnection->getDBConnection();
 
-    $sql = "SELECT * FROM casete ";
+    $sql = "SELECT casete.nombre, casete.imagen_casete, artista.nombre_artista, casete.id FROM casete JOIN artista ON casete.id_artista=artista.id_artista";
 
 $res=$MySQL->query($sql);
 

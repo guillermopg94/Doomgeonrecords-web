@@ -5,12 +5,13 @@ include("conexion.php");
 $MySQLConnection = new ConnectionDB();
 $MySQL = $MySQLConnection->getDBConnection();
 
-$codigo = $_GET['idUsuario'];
+$nombre = $_GET['idUsuario'];
 
 
 
-$sql_delete = "DELETE FROM producto WHERE id_producto=$codigo";
+$sql_delete = "DELETE FROM vinilo WHERE nombre='$nombre'";
 $res = $MySQL->query($sql_delete);
 
 
 echo $codigo;
+

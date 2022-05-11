@@ -1,5 +1,6 @@
 <?php
 
+
 include("conexion.php");
 
 $MySQLConnection = new ConnectionDB();
@@ -7,21 +8,23 @@ $MySQL = $MySQLConnection->getDBConnection();
 
 $codigo = $_GET['idUsuario'];
 
-
 $sql_disable = "SET FOREIGN_KEY_CHECKS=0"; 
 $disable = $MySQL->query($sql_disable);
-$sql_delete = "DELETE FROM album WHERE id_album=$codigo";
+
+$sql_delete = "DELETE FROM camiseta WHERE nombre='$codigo'";
 $res = $MySQL->query($sql_delete);
+
 $sql_re_enable = "SET FOREIGN_KEY_CHECKS=1";
 $re_enable = $MySQL->query($sql_re_Enable);
 
 
-$sql = "SELECT * FROM album";
-$res1 = $MySQL->query($sql);
+
+$sql = "SELECT * FROM casete";
+$res = $MySQL->query($sql);
 $jsonData = array();
 
 
-while ($row = $res1->fetch_array()) {
+while ($row = $res->fetch_array()) {
     $jsonData[] = $row;
 }
 

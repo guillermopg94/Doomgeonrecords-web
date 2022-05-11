@@ -600,7 +600,7 @@ else if(localStorage.getItem("ubication")=="album"){
       localStorage.setItem("select", seleccionado);
     });
 }
-else if(localStorage.getItem("ubication")=="productos"){
+else if(localStorage.getItem("ubication")=="cd"){
 
     if(localStorage.getItem("footer")=="true"){
         $('html, body').animate({
@@ -609,29 +609,13 @@ else if(localStorage.getItem("ubication")=="productos"){
     }
 
 
-    $("<h1 class='h1PrincipalEnAdmin'>PRODUCTOS</h1><div id='container-form5'><br>Artista<br><div id='select-form5'></div><form id='my_form5' >"+
-    "<input type='text' name='codigoProducto' hidden /><br>"+
+    $("<h1 class='h1PrincipalEnAdmin'>CD</h1><div id='container-form5'><br>Artista<br><div id='select-form5'></div><form id='my_form5' >"+
+    "<input type='text' name='codigoCd' hidden /><br>"+
     "<input type='text' name='codigoArtista' hidden /><br>"+
-    "Producto: <br><input type='text' name='nombreProducto'/> <br>"+
-    "CD: <br><input type='text' name='nombreCD'/> <br>"+
-    "Cantidad CD: <br><input type='number' name='cantidadCD'/><br>"+
-    "CD imagen: <br><input type='text' name='imagenCD'/><br>"+
-    "<br>Casete: <br><input type='text' name='nombreCasete'/>"+
-    "<br>Cantidad Casete: <br><input type='number' name='cantidadCasete'/><br>"+
-    "Casete imagen: <br><input type='text' name='imagenCasete'/><br>"+
-    "<br>Vinilo: <br><input type='text' name='nombreVinilo'/>"+
-    "<br>Cantidad Vinilo: <br><input type='number' name='cantidadVinilo'/><br>"+
-    "Vinilo imagen: <br><input type='text' name='imagenVinilo'/><br>"+
-    "<br>Camiseta: <br><input type='text' name='nombreCamiseta'/>"+
-    "<br>Camiseta imagen: <br><input type='text' name='imagenCamiseta'/><br>"+
-    "Cantidad Camiseta: <br><input type='number' name='cantidadCamiseta'/><br>"+
-    "Talla XXL: <br><input type='number' name='tallaXXL'/><br>"+
-    "Talla XL: <br><input type='number' name='tallaXL'/><br>"+
-    "Talla L: <br><input type='number' name='tallaL'/><br>"+
-    "Talla M: <br><input type='number' name='tallaM'/><br>"+
-    "Talla S: <br><input type='number' name='tallaS'/><br>"+
-    "<br/><br><button type='button' id='insertarProducto'>Insertar</button><br/><br/>"+
-    "<button type='button' class='confirmarProducto'>Editar</button><br/><br></form></div>")
+    "Nombre: <br><input type='text' name='nombre_cd'/> <br>"+
+    "CD imagen: <br><input type='text' name='img_cd'/><br>"+
+    "<br/><br><button type='button' id='insertarCd'>Insertar</button><br/><br/>"+
+    "<button type='button' class='confirmarCd'>Editar</button><br/><br></form></div>")
     .appendTo("#contentAdmin");
 
     $("<select class='nombreEnSelect'></select>")
@@ -641,7 +625,7 @@ else if(localStorage.getItem("ubication")=="productos"){
       localStorage.setItem("select", seleccionado);
     });
 }
-else if(localStorage.getItem("ubication")=="compras"){
+else if(localStorage.getItem("ubication")=="casete"){
 
 
     if(localStorage.getItem("footer")=="true"){
@@ -650,8 +634,70 @@ else if(localStorage.getItem("ubication")=="compras"){
             }, 800);
     }
 
-    $("")
+    $("<h1 class='h1PrincipalEnAdmin'>CASETE</h1><div id='container-form6'><br>Artista<br><div id='select-form6'></div><form id='my_form6' >"+
+    "<input type='text' name='codigoCasete' hidden /><br>"+
+    "<input type='text' name='codigoArtista' hidden /><br>"+
+    "Casete: <br><input type='text' name='nombre_casete'/><br>"+
+    "Casete imagen: <br><input type='text' name='img_casete'/><br>"+
+    "<br/><br><button type='button' id='insertarCasete'>Insertar</button><br/><br/>"+
+    "<button type='button' class='confirmarCasete'>Editar</button><br/><br></form></div>")
     .appendTo("#contentAdmin");
+
+    $("<select class='nombreEnSelect'></select>")
+    .appendTo("#select-form6")
+    .change(function () {
+      var seleccionado = $(this).val();
+      localStorage.setItem("select", seleccionado);
+    });
+
+}
+else if(localStorage.getItem("ubication")=="vinilo"){
+
+
+    if(localStorage.getItem("footer")=="true"){
+        $('html, body').animate({
+            scrollTop: $("#footer").offset().top
+            }, 800);
+    }
+
+    $("<h1 class='h1PrincipalEnAdmin'>VINILO</h1><div id='container-form7'><br>Artista<br><div id='select-form7'></div><form id='my_form7' >"+
+    "<input type='text' name='codigoVinilo' hidden /><br>"+
+    "<input type='text' name='codigoArtista' hidden /><br>"+
+    "<br>Vinilo: <br><input type='text' name='nombre_vinilo'/>"+
+    "<br>Vinilo imagen: <br><input type='text' name='img_vinilo'/><br>"+
+    "<br/><br><button type='button' id='insertarVinilo'>Insertar</button><br/><br/>"+
+    "<button type='button' class='confirmarVinilo'>Editar</button><br/><br></form></div>")
+    .appendTo("#contentAdmin");
+    $("<select class='nombreEnSelect'></select>")
+    .appendTo("#select-form7")
+    .change(function () {
+      var seleccionado = $(this).val();
+      localStorage.setItem("select", seleccionado);
+    });
+}
+else if(localStorage.getItem("ubication")=="camiseta"){
+
+
+    if(localStorage.getItem("footer")=="true"){
+        $('html, body').animate({
+            scrollTop: $("#footer").offset().top
+            }, 800);
+    }
+
+    $("<h1 class='h1PrincipalEnAdmin'>CAMISETA</h1><div id='container-form8'><br>Artista<br><div id='select-form8'></div><form id='my_form8' >"+
+    "<input type='text' name='codigoCamiseta' hidden /><br>"+
+    "<input type='text' name='codigoArtista' hidden /><br>"+
+    "<br>Camiseta: <br><input type='text' name='nombre_camiseta'/>"+
+    "<br>Camiseta imagen: <br><input type='text' name='img_camiseta'/><br>"+
+    "<br/><br><button type='button' id='insertarCamiseta'>Insertar</button><br/><br/>"+
+    "<button type='button' class='confirmarCamiseta'>Editar</button><br/><br></form></div>")
+    .appendTo("#contentAdmin");
+    $("<select class='nombreEnSelect'></select>")
+    .appendTo("#select-form8")
+    .change(function () {
+      var seleccionado = $(this).val();
+      localStorage.setItem("select", seleccionado);
+    });
 }
 else if(localStorage.getItem("ubication")=="imagenes"){
     $("<h1 class='h1PrincipalEnAdmin'>IMAGENES</h1><div id='container-imagenes'><form action='php/subirImagen.php' method='post' enctype='multipart/form-data'> <input type='file' name='foto' id='fitxer'> <br> <input type='submit' name='submit' id='guardarImg' value='Guardar'></form></div>")

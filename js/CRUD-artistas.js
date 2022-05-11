@@ -112,7 +112,7 @@ if(localStorage.getItem("ubication")=="artistas"){
                   draggable: true,
                 });
               } else {
-
+                localStorage.setItem("errorInsertandoArtistaSuuces", resultado);
               localStorage.setItem("ubication", "artistas");
     
              location.reload();
@@ -137,12 +137,10 @@ if(localStorage.getItem("ubication")=="artistas"){
             type: "GET",
             url: "php/eliminarArtista.php?idUsuario=" + codigo,
             success: function (resultado) {
-              if(resultado == "ese usuario tiene asignada una compra"){
-                alert("ese usuario tiene asignada una compra");
-              }else{
+             
                 localStorage.setItem("ubication", "artistas");
                 location.reload();
-              }
+              
     
             },
             error: function (xhr) {

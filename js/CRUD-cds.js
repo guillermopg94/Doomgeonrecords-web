@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    if(localStorage.getItem("ubication")=="album"){
+    if(localStorage.getItem("ubication")=="cd"){
 
       $.ajax({
         url: "php/select.php",
@@ -14,55 +14,57 @@ $(document).ready(function() {
             ).appendTo(".nombreEnSelect");
           }
         },
-        error: function () {
-      
+        error: function (xhr) {
+            localStorage.setItem("errorSelectArtistas", xhr);
         },
       });
     
         $.ajax({
             type: "GET",
-            url: "php/mostrarAlbum.php",
+            url: "php/mostrarCds.php",
             dataType: "json",
             success: function (resultado) {
               var users = resultado;
-              $(".confirmarAlbum").css("visibility", "hidden");
+              localStorage.setItem("errorMostrandoCdSucces", resultado);
+              $(".confirmarCd").css("visibility", "hidden");        
               for (var x of users) {
-                pintarAlbumes(x);
+                pintarCds(x);
               }
             },
             error: function (xhr) {
-              localStorage.setItem("errorMostrandoAlbum", xhr);
+              localStorage.setItem("errorMostrandoCd", xhr);
             },
           });
         
-          function pintarAlbumes(x){
-            var id_album = JSON.stringify(x.id_album);
+          function pintarCds(x){
+            var id = JSON.stringify(x.id);
        
+         
         $(
         "<div class='usuarios'>Nombre<p>" +
-        x.nombre_album +
+        x.nombre +
         "</p>Imagen<p>" +
-        x.imagen_album +
+        x.imagen_cd +
         "</p>Artista<p>" +
         x.nombre_artista +
         "</p>"+
-        "<img src='assets/"+ x.imagen_album +"' alt='La imagen correspondiente al album' width='80%' height='80%' >"+
-        "<br><br><input type='button' class='eliminarAlbum' name=" +
-        id_album +
-        " value='eliminar'><input type='button' class='editarAlbum' name=" +
-        id_album +
+        "<img src='assets/"+ x.imagen_cd +"' alt='La imagen correspondiente al cd "+x.nombre+"' width='80%' height='80%' >"+
+        "<br><br><input type='button' class='eliminarCd' name=" +
+        x.nombre +
+        " value='eliminar'><input type='button' class='editarCd' name=" +
+        id +
         " value='editar'><br><br></div>"
         ).appendTo("#contentAdmin"); 
         
            }
         
-           $("#insertarAlbum").on("click", function () {
+           $("#insertarCd").on("click", function () {
             if (
-              $("input[name=nombreAlbum]").val() == "" ||
-              $("input[name=imagenAlbum]").val() == ""
+              $("input[name=nombre_cd]").val() == "" ||
+              $("input[name=img_cd]").val() == ""
             ) {
               $(
-                "<div id='dialog-fields-adding-user' title='Fields Error'><p>Los campos no pueden estar vacíos</p></div>"
+                "<div id='dialog-fields-adding-user' title='Error'><p>Los campos no pueden estar vacíos</p></div>"
               ).appendTo("#contentAdmin");
               $("#dialog-fields-adding-user").dialog({
                 modal: true,
@@ -71,22 +73,22 @@ $(document).ready(function() {
             }else{
                 
               $("input[name=codigoArtista]").val(localStorage.getItem('select')); 
-              var datos = $("#my_form4").serialize();
+              var datos = $("#my_form5").serialize();
 
               $.ajax({
                 type: "GET",
-                url: "php/insertarAlbum.php",
+                url: "php/insertarCd.php",
                 data: datos,
                 success: function (resultado) {
 
                   $("input").val("");
 
                
-                  localStorage.setItem("errorInsertandoAlbumSucces", resultado);
+                  localStorage.setItem("errorInsertandoCDSucces", resultado);
 
                   if (resultado == "existe") {
                     $(
-                      "<div id='dialog-exist' title='Album Error'><p>Ese album ya está registrado.</p></div>"
+                      "<div id='dialog-exist' title='Alerta'><p>Ese cd ya está registrado.</p></div>"
                     ).appendTo("#contentAdmin");
                     $("#dialog-exist").dialog({
                       modal: true,
@@ -94,85 +96,86 @@ $(document).ready(function() {
                     });
                   } else {
                  
-                 localStorage.setItem("ubication", "album");
+                 localStorage.setItem("ubication", "cd");
                  location.reload();
           
                   }
                 },
                 error: function (xhr) {
-                  localStorage.setItem("errorInsertandoAlbum", xhr);
+                  localStorage.setItem("errorInsertandocd", xhr);
                 },
               });
             }
           });
-          $("body").on("click", "input.eliminarAlbum", function () {
+          $("body").on("click", "input.eliminarCd", function () {
         
             if (confirm("Desea eliminarlo?") == true) {
               var codigo = $(this)
                 .parents("#contentAdmin .usuarios")
-                .find(".eliminarAlbum")
+                .find(".eliminarCd")
                 .attr("name");
 
         
               $.ajax({
                 type: "GET",
-                url: "php/eliminarAlbum.php?idUsuario=" + codigo,
+                url: "php/eliminarCd.php?idUsuario=" + codigo,
                 success: function () {
                  
-                    localStorage.setItem("ubication", "album");          
-                   
+                    localStorage.setItem("ubication", "cd");          
+                
                     location.reload();
-               
+              
                 
                 },
                 error: function (xhr) {
-                  localStorage.setItem("errorEliminandoAlbum", xhr);
+                  localStorage.setItem("errorEliminandoCd", xhr);
                 },
               });
             }
         
           })
         
-          $("body").on("click", "input.editarAlbum", function () {
-            var codigo = $(this)
-              .parents("#contentAdmin .usuarios")
-              .find(".eliminarAlbum")
-              .attr("name");
+          $("body").on("click", "input.editarCd", function () {
 
+
+            var codigo = $(this)
+            .parents("#contentAdmin .usuarios")
+            .find(".editarCd")
+            .attr("name");
+     
               $('html, body').animate({
-                scrollTop: $("#container-form4").offset().top
+                scrollTop: $("#container-form5").offset().top
                 }, 800);
 
 
-            var nombreAlbum = $(this).parents("#contentAdmin .usuarios").find("p:eq(0)").html();
-            var imagenAlbum = $(this).parents("#contentAdmin .usuarios").find("p:eq(1)").html();
-        
-            $("input[name=codigoAlbum]").val(codigo);
-            $("input[name=nombreAlbum]").val(nombreAlbum);
-            $("input[name=imagenAlbum]").val(imagenAlbum);
+            var nombreCd = $(this).parents("#contentAdmin .usuarios").find("p:eq(0)").html();
+            var imagenCd = $(this).parents("#contentAdmin .usuarios").find("p:eq(1)").html();
+            $("input[name=codigoCd]").val(codigo);
+            $("input[name=nombre_cd]").val(nombreCd);
+            $("input[name=img_cd]").val(imagenCd);
 
-            $(".confirmarAlbum").css("visibility", "visible");
-            $("#insertarAlbum").css("visibility", "hidden");
+            $(".confirmarCd").css("visibility", "visible");
+            $("#insertarCd").css("visibility", "hidden");
         
           })
         
-          $("body").on("click", "button.confirmarAlbum", function () {
+          $("body").on("click", "button.confirmarCd", function () {
             if (confirm("Desea guardar los cambios?") == true) {
               $("input[name=codigoArtista]").val(localStorage.getItem('select')); 
-              var datos = $("#my_form4").serialize();
+              var datos = $("#my_form5").serialize();
               $.ajax({
                 type: "POST",
-                url: "php/editarAlbum.php",
+                url: "php/editarCd.php",
                 data: datos,
                 success: function (resultado) {
                   $("input").val("");
-                  $(".confirmarAlbum").css("visibility", "hidden");
-                  localStorage.setItem("ubication", "album");
-                  localStorage.setItem("errorSuccessEditarAlbum", resultado);
+                  $(".confirmarCd").css("visibility", "hidden");
+                  localStorage.setItem("ubication", "cd");
+                  localStorage.setItem("errorSuccessEditarCd", resultado);
                   location.reload();
                 },
                 error: function (xhr) {
-                  localStorage.setItem("errorEditandoAlbum", xhr);
+                  localStorage.setItem("errorEditandoCd", xhr);
                 },
               });
             }

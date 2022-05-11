@@ -128,13 +128,21 @@ location.reload();
     location.reload();
   });
 
-  $("#productos").on("click", function () {
-    localStorage.setItem("ubication", "productos");
+  $("#cd").on("click", function () {
+    localStorage.setItem("ubication", "cd");
     location.reload();
   });
 
-  $("#compras").on("click", function () {
-    localStorage.setItem("ubication", "compras");
+  $("#casete").on("click", function () {
+    localStorage.setItem("ubication", "casete");
+    location.reload();
+  });
+  $("#vinilo").on("click", function () {
+    localStorage.setItem("ubication", "vinilo");
+    location.reload();
+  });
+  $("#camiseta").on("click", function () {
+    localStorage.setItem("ubication", "camiseta");
     location.reload();
   });
   $("#logo-logout").on("click", function () {

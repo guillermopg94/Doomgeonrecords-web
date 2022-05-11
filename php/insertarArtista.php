@@ -20,7 +20,7 @@ $NumerodeColumnas=mysqli_num_rows($sqlUserExiste);
 if($NumerodeColumnas==0)
 {
 
-$sql_insert = "INSERT INTO artista (nombre_artista, id_album, imagen_artista, id_producto, instagram, bandcamp, facebook ) VALUES ('$nombre_artista', 0, '$imagen_artista', 0, '$instagram', '$bandcamp', '$facebook')";
+$sql_insert = "INSERT INTO artista (nombre_artista, id_album, imagen_artista, id_producto, instagram, bandcamp, facebook, genero ) VALUES ('$nombre_artista', 0, '$imagen_artista', 0, '$instagram', '$bandcamp', '$facebook', 'punk')";
 
 $res = $MySQL->query($sql_insert);
 
