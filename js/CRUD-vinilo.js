@@ -48,7 +48,7 @@ $(document).ready(function() {
         "</p>Artista<p>" +
         x.nombre_artista +
         "</p>"+
-        "<img src='assets/"+ x.imagen_vinilo +"' alt='La imagen correspondiente al cd "+x.nombre+"' width='80%' height='80%' >"+
+        "<div class='div-img-crud'><img src='assets/"+ x.imagen_vinilo +"' alt='La imagen correspondiente al cd "+x.nombre+"' class='img-crud'></div>"+
         "<br><br><input type='button' class='eliminarVinilo' name=" +
         x.nombre +
         " value='eliminar'><input type='button' class='editarVinilo' name=" +

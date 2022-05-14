@@ -46,7 +46,7 @@ $(document).ready(function() {
         "</p>Artista<p>" +
         x.nombre_artista +
         "</p>"+
-        "<img src='assets/"+ x.imagen_album +"' alt='La imagen correspondiente al album' width='80%' height='80%' >"+
+        "<img src='assets/"+ x.imagen_album +"' alt='La imagen correspondiente al album'>"+
         "<br><br><input type='button' class='eliminarAlbum' name=" +
         id_album +
         " value='eliminar'><input type='button' class='editarAlbum' name=" +

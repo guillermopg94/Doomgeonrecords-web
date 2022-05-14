@@ -38,7 +38,7 @@ $(document).ready(function() {
         url: "php/mostrarCds.php",
         dataType: "json",
         success: function (resultado) {
-         
+            localStorage.setItem("errorMostrandoCDSucces", resultado);
           for (var x of resultado) {
             JSON.stringify(x);
         
@@ -58,7 +58,7 @@ $(document).ready(function() {
         url: "php/mostrarCasetes.php",
         dataType: "json",
         success: function (resultado) {
-         
+            localStorage.setItem("errorMostrandoCaseteSucces", resultado);
           for (var x of resultado) {
             JSON.stringify(x);
         
@@ -78,7 +78,7 @@ $(document).ready(function() {
         url: "php/mostrarCamisetas.php",
         dataType: "json",
         success: function (resultado) {
-         
+            localStorage.setItem("errorMostrandoCamisetaSucces", resultado);
           for (var x of resultado) {
             JSON.stringify(x);
         
@@ -98,7 +98,7 @@ $(document).ready(function() {
         url: "php/mostrarVinilos.php",
         dataType: "json",
         success: function (resultado) {
-         
+            localStorage.setItem("errorMostrandoViniloSucces", resultado);
           for (var x of resultado) {
             JSON.stringify(x);
         
@@ -161,7 +161,7 @@ $("</br></br><h1>Artistas relacionados:</h1>").appendTo(".content-extension");
     })
 }
     function mostrarCDs(arrayMerch){
-
+   
         arrayMerch.forEach(element => {
             if(element.id_artista == 5){
                 $("<div class='contenedor-producto' id='cd-dh'><div class='div-productos-relacionados'><img src='assets/"+element.img_cd+"' alt='"+element.cd_nombre+"' class='img-artistas-relacionados'></div><div class='name-product'> <p> "+element.cd_nombre+"</p></div></div>"
@@ -177,7 +177,7 @@ $("</br></br><h1>Artistas relacionados:</h1>").appendTo(".content-extension");
        });
 }
 function mostrarCasetes(arrayMerch){
-
+  
     arrayMerch.forEach(element => {
         if(element.id_artista == 5){
             $("<div class='contenedor-producto' id='casete-dh'><div class='div-productos-relacionados'><img src='assets/"+element.img_casete+"' alt='"+element.casete_nombre+"' class='img-artistas-relacionados'></div><div class='name-product'> <p> "+element.casete_nombre+"</p></div></div>"
@@ -255,7 +255,7 @@ if(localStorage.getItem("ubication") == "Bloody Crom"){
 
   
 function mostrarCasetes(arrayMerch){
-
+ 
     arrayMerch.forEach(element => {
         if(element.id_artista == 7){
             $("<div class='contenedor-producto' id='casete-bc'><div class='div-productos-relacionados'><img src='assets/"+element.img_casete+"' alt='"+element.casete_nombre+"' class='img-artistas-relacionados'></div><div class='name-product'> <p> "+element.casete_nombre+"</p></div></div>"
@@ -271,7 +271,7 @@ $(".img-artistas-relacionados").mouseenter(function(){
    });
 }
 function mostrarCamisetas(arrayMerch){
-
+  
     arrayMerch.forEach(element => {
         if(element.id_artista == 7){
             $("<div class='contenedor-producto' id='camiseta-bc'><div class='div-productos-relacionados'><img src='assets/"+element.img_camiseta+"' alt='"+element.camiseta_nombre+"'  class='img-artistas-relacionados'></div><div class='name-product'> <p> "+element.camiseta_nombre+"</p></div></div>"
@@ -350,7 +350,7 @@ $(".img-artistas-relacionados").mouseenter(function(){
    });
 }
 function mostrarVinilos(arrayMerch){
-
+ 
     arrayMerch.forEach(element => {
         if(element.id_artista == 8){
             $("<div class='contenedor-producto' id='vinilo-captain'><div class='div-productos-relacionados'><img src='assets/"+element.img_vinilo+"' alt='"+element.vinilo_nombre+"' class='img-artistas-relacionados'></div><div class='name-product'> <p> "+element.vinilo_nombre+"</p></div></div>"
@@ -366,7 +366,7 @@ $(".img-artistas-relacionados").mouseenter(function(){
    });
 }
 function mostrarCamisetas(arrayMerch){
-
+ 
     arrayMerch.forEach(element => {
         if(element.id_artista == 8){
             $("<div class='contenedor-producto' id='camiseta-captain'><div class='div-productos-relacionados'><img src='assets/"+element.img_camiseta+"' alt='"+element.camiseta_nombre+"'  class='img-artistas-relacionados'></div><div class='name-product'> <p> "+element.camiseta_nombre+"</p></div></div>"

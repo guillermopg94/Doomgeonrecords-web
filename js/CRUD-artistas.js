@@ -70,7 +70,7 @@ if(localStorage.getItem("ubication")=="artistas"){
     "Instagram<p>" +
     x.instagram +
     "</p>"+
-    "<img src='assets/"+ x.imagen_artista +"' alt='La imagen correspondiente al artista' width='80%' height='80%' >"+
+    "<div class='div-img-crud'><img src='assets/"+ x.imagen_artista +"' alt='La imagen correspondiente al artista' class='img-crud'></div>"+
     "<br><br><input type='button' class='eliminarArtist' name=" +
     id_artista +
     " value='eliminar'><input type='button' class='editarArtist' name=" +

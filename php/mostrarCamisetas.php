@@ -5,7 +5,7 @@ include("conexion.php");
 $MySQLConnection = new ConnectionDB();
 $MySQL = $MySQLConnection->getDBConnection();
 
-    $sql = "SELECT camiseta.nombre, camiseta.imagen_camiseta, artista.nombre_artista, camiseta.id FROM camiseta JOIN artista ON camiseta.id_artista=artista.id_artista";
+    $sql = "SELECT camiseta.nombre, camiseta.imagen_camiseta, artista.nombre_artista, camiseta.id, artista.id_artista FROM camiseta JOIN artista ON camiseta.id_artista=artista.id_artista";
 
 $res=$MySQL->query($sql);
 
