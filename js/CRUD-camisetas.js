@@ -48,7 +48,7 @@ $(document).ready(function() {
         "</p>Artista<p>" +
         x.nombre_artista +
         "</p>"+
-        "<div class='div-img-crud'><img src='assets/"+ x.imagen_camiseta +"' alt='La imagen correspondiente al cd "+x.nombre+"' class='img-crud'></div>"+
+        "<div class='div-img-crud'><img src='assets/camisetas/"+ x.imagen_camiseta +"' alt='La imagen correspondiente al cd "+x.nombre+"' class='img-crud'></div>"+
         "<br><br><input type='button' class='eliminarCamiseta' name=" +
         x.nombre +
         " value='eliminar'><input type='button' class='editarCamiseta' name=" +

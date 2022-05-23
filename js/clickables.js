@@ -85,12 +85,6 @@ location.reload();
     localStorage.setItem("ubication", "artists-no-logged");
     location.reload();
   });
-  $("#shop-no-logged").on("click", function () {
-    localStorage.setItem("ubication", "shop-no-logged");
-    location.reload();
-  });
-
-
 
   $("#contact-logged").on("click", function () {
     localStorage.setItem("ubication", "contact-logged");
@@ -107,6 +101,10 @@ location.reload();
   });
   $("#shop-logged").on("click", function () {
     localStorage.setItem("ubication", "shop-logged");
+    location.reload();
+  });
+  $("#detalles-logged").on("click", function () {
+    localStorage.setItem("ubication", "detalles-logged");
     location.reload();
   });
   // ADMIN SITE //
@@ -171,14 +169,16 @@ location.reload();
       .attr("title");
     if(band=="Double Horse"){
       localStorage.setItem("ubication", band);
-      location.reload();
+  
+      location.reload(true);
 
     }else if (band =="Bloody Crom"){
       localStorage.setItem("ubication", band);
-      location.reload();
+      location.reload(true);
     }else{
       localStorage.setItem("ubication", band);
-      location.reload();
+      location.reload(true);
+  
     }
 });
 });

@@ -14,7 +14,7 @@ $(document).ready(function ($) {
       ) {
         $("<div class='errorEmail' title='Error del correo'><p>El correo introducido no es correcto</p></div>").dialog();
       } else {
-        localStorage.getItem("ha pasado los controles", "ok");
+ 
         var datos = $("#registro").serialize();
       
         $.ajax({

@@ -94,3 +94,9 @@
     width: 100%;
     
     }
+    .no-local{
+      display: flex;
+    }
+    .local{
+      display: flex;
+    }

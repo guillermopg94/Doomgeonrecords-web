@@ -16,7 +16,7 @@
   </div>
   <div id="salutation"></div>
   <div id="logo-logout">
-    <p>Log-out</p><i class="fa-solid fa-arrow-right-from-bracket"></i>
+    <a>Log-out</a><i class="fa-solid fa-arrow-right-from-bracket"></i>
   </div>
   </div>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -44,8 +44,8 @@
             >
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href=""
-              >TIENDA</a
+            <a class="nav-link active" aria-current="page" href="https://santich.com.es/es/"
+            target="_blank" >TIENDA</a
             >
           </li>
           <li class="nav-item" id="contact-logged">
@@ -53,23 +53,74 @@
               >CONTACTO</a
             >
           </li>
+          <li class="nav-item" id="detalles-logged">
+            <a class="nav-link active" aria-current="page" href=""
+              >DETALLES</a
+            >
+          </li>
         </ul>
       </div>
     </div>
   </nav>
-<main> 
-<main>
-<footer>
-  <div id="copy-right">
-    © 2021 Doomgeon Records
+<main id="logged"> 
+</main>
+<div class='content-extension'></div>
+  <footer>
+    <div class="container-footer">
+      <div class="section-footer">
+          <h3>Contacto</h3>
+        <ul>
+          <li>Doomgeon Records </li>
+          <li>España</li>
+          <li>(+36) 649 189 619</li>
+          <li><a href="" id="contact-no-logged">Contactáctanos</a></li>
+        </ul>
+      </div>
+      <div class="section-footer">
+          <h3>Información</h3>
+        <ul>
+          <li> <a href="politica-privacidad.html" target="_blank">política de privacidad</a></li>
+          <li><a href="terminos-y-condiciones.html"  target="_blank"> Términos y condiciones</a></li>
+         
+          <li><a href="https://santich.com.es/es/"  target="_blank"> Tienda</a></li>
+       
+  
+        </ul>
+      </div>
+     
+      <div class="section-footer"> <h3>Newsletter</h3>
+      <p>Envía tu correo para subscribirte al boletín <br> y así mantenerse actualizado sobre novedades del sello</p>
+      
+     
+          <form id="subscribe">
+              <input
+              id="emailNewsletter"
+                type="email"
+                required="required"
+                placeholder="Email"
+              name="email"
+              >
+           <div class='g-recaptcha' data-sitekey='6LetZsgfAAAAACcG0V6kJea-wVC4_O2ZNw0Dgwev'></div> 
+              <input type='button'
+                id="buton-subscribe"  
+            
+                value="Subscribe"
+              >
+               
+              
+            </form>
+      </div>
+  
+    </div>
+    <div id="copy-right">
+      © 2021 Doomgeon Records
+    </div>
+    <div id="social_network">
+      <i class="fa-brands fa-facebook" id="facebook-icon"></i>
+      <i class="fa-brands fa-instagram-square" id="instagram-icon"></i>
   </div>
-
-  <div id="social_network">
-    <i class="fa-brands fa-facebook" id="facebook-icon"></i>
-    <i class="fa-brands fa-instagram-square" id="instagram-icon"></i>
-</div>
-</div>
-</footer>
+  </div>
+  </footer>
 </body>
 <link
 href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
@@ -90,23 +141,32 @@ crossorigin="anonymous"
 <link rel="stylesheet" href="css/artists.css">
 <link rel="stylesheet" href="css/footer.css">
 <link rel="stylesheet" href="css/contact.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+<script>  $(document).ready(function(){   $('.slider').bxSlider();});</script>
 <script src="js/jquery-3.6.0.min.js" type="text/javascript"></script>
+<script src="js/jquery-ui.min.js" type="text/javascript"></script>
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
-<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
-<script src="js/session-control-logged.js"></script>
+
 <script src="js/clickables.js"></script>
-<script src="js/distribution-of-pages.js"></script>
+<script src="js/webLogged.js"></script>
+<script src="js/artistas.js"></script>
 <script src="js/user-management.js"></script>
+<script src="js/send-mail.js"></script>
+<script src="js/newsletter.js"></script>
+<script src="js/detalles.js"></script>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Germania+One&display=swap');
   </style>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300&family=Roboto+Slab:wght@300&display=swap');
     </style>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
-    <script>$(document).ready(function(){$('.slider').bxSlider();});</script>
-    <link rel="shortcut icon" href="assets/50010_label.jpg">
-    <script src="https://kit.fontawesome.com/413b87e80b.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="css/popupConsent.css" />
+
+<script src="js/popupConsent.js"></script>
+
+<script src="https://kit.fontawesome.com/413b87e80b.js" crossorigin="anonymous"></script>
+<script src='https://www.google.com/recaptcha/api.js'></script>
 </html>
