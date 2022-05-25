@@ -110,10 +110,7 @@ location.reload();
     localStorage.setItem("ubication", "detalles-logged");
     location.reload();
   });
-  $("#conciertos-logged").on("click", function () {
-    localStorage.setItem("ubication", "conciertos-logged");
-    location.reload();
-  });
+
   
   // ADMIN SITE //
 

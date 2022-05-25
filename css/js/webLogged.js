@@ -2,7 +2,7 @@
 $(document).ready(function() {
 
     let arrayArtista = [];
-    let arrayConciertos = [];
+
     $.ajax({
         type: "GET",
         url: "php/mostrarArtistas.php",
@@ -21,31 +21,6 @@ $(document).ready(function() {
         },
         error: function (xhr) {
           localStorage.setItem("errorMostrandoArtista", xhr);
-        },
-      });
-
-      $.ajax({
-        type: "GET",
-        url: "php/mostrarConciertos.php",
-    
-        dataType: "json",
-        success: function (resultado) {
-          localStorage.setItem("errorMostrandoConciertosSucces", resultado);
-          for (var x of resultado) {
-            JSON.stringify(x);
-    
-            arrayConciertos.push({
-              nombre: x.nombre,
-              img: x.img,
-              fecha: x.fecha,
-              descripcion: x.descripcion
-            });
-          }
-    
-          conciertos(arrayConciertos);
-        },
-        error: function (jqXHR, textStatus, errorThrown) {
-          localStorage.setItem("errorMostrandoConcierto", ""+jqXHR+""+ textStatus+""+ errorThrown+"");
         },
       });
 
@@ -105,27 +80,4 @@ $(document).ready(function() {
         
            
 }  
-else if(localStorage.getItem("ubication")=="conciertos-logged"){
-   $("<h1>CONCIERTOS</h1>").appendTo("main");
-  function conciertos(arrayMerch) {
-    arrayMerch.forEach((element) => {
-      $(
-          "<div class='contenedor-producto' ><div class='div-productos-relacionados'><img src='assets/conciertos/" +
-            element.img +
-            "' alt='" +
-            element.nombre +
-            "'  class='img-artistas-relacionados'></div><div class='name-product'> <p> " +
-            element.nombre +
-            "</p></div></div>"
-        ).appendTo("main");
-      });
-      $(".img-artistas-relacionados").mouseenter(function () {
-        $(this).animate({ width: "105%", height: "105%" }, 500, "linear");
-      });
-      $(".img-artistas-relacionados").mouseleave(function () {
-        $(this).stop(true);
-        $(this).animate({ width: "100%", height: "100%" }, 500, "linear");
-      });
-  }
-  }
 });

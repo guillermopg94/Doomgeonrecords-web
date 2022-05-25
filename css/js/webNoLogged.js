@@ -25,9 +25,8 @@ $(document).ready(function() {
       });
 
       $.ajax({
-        type: "GET",
+       
         url: "php/mostrarConciertos.php",
-    
         dataType: "json",
         success: function (resultado) {
           localStorage.setItem("errorMostrandoConciertosSucces", resultado);
@@ -127,11 +126,11 @@ $("<h1 class='h1-home'>ARTISTAS</h1>").appendTo("main");
 
 }
 else if(localStorage.getItem("ubication")=="conciertos-no-logged"){
-  $("<h1>CONCIERTOS</h1>").appendTo("main");
+   
 function conciertos(arrayMerch) {
   arrayMerch.forEach((element) => {
     $(
-        "<div class='contenedor-producto' ><div class='div-productos-relacionados'><img src='assets/conciertos/" +
+        "<div class='contenedor-producto' id='camiseta-captain'><div class='div-productos-relacionados'><img src='assets/conciertos/" +
           element.img +
           "' alt='" +
           element.nombre +
@@ -139,13 +138,6 @@ function conciertos(arrayMerch) {
           element.nombre +
           "</p></div></div>"
       ).appendTo("main");
-    });
-    $(".img-artistas-relacionados").mouseenter(function () {
-      $(this).animate({ width: "105%", height: "105%" }, 500, "linear");
-    });
-    $(".img-artistas-relacionados").mouseleave(function () {
-      $(this).stop(true);
-      $(this).animate({ width: "100%", height: "100%" }, 500, "linear");
     });
 }
 }
