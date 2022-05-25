@@ -1,10 +1,5 @@
 $(document).ready(function () {
   let arrayArtista = [];
-  let arrayCds = [];
-  let arrayCasetes = [];
-  let arrayCamisetas = [];
-  let arrayVinilos = [];
-
   $.ajax({
     type: "GET",
     url: "php/mostrarArtistas.php",
@@ -28,92 +23,6 @@ $(document).ready(function () {
     },
     error: function (xhr) {
       localStorage.setItem("errorMostrandoArtista", xhr);
-    },
-  });
-
-  $.ajax({
-    type: "GET",
-    url: "php/mostrarCds.php",
-    dataType: "json",
-    success: function (resultado) {
-      for (var x of resultado) {
-        JSON.stringify(x);
-
-        arrayCds.push({
-          cd_nombre: x.nombre,
-          id_artista: x.id_artista,
-          img_cd: x.imagen_cd,
-        });
-      }
-
-      mostrarCDs(arrayCds);
-    },
-    error: function (xhr) {
-      localStorage.setItem("errorMostrandoCD", xhr);
-    },
-  });
-  $.ajax({
-    type: "GET",
-    url: "php/mostrarCasetes.php",
-    dataType: "json",
-    success: function (resultado) {
-      for (var x of resultado) {
-        JSON.stringify(x);
-
-        arrayCasetes.push({
-          casete_nombre: x.nombre,
-          id_artista: x.id_artista,
-          img_casete: x.imagen_casete,
-        });
-      }
-
-      mostrarCasetes(arrayCasetes);
-    },
-    error: function (xhr) {
-      localStorage.setItem("errorMostrandoCasete", xhr);
-    },
-  });
-  $.ajax({
-    type: "GET",
-    url: "php/mostrarCamisetas.php",
-    dataType: "json",
-    success: function (resultado) {
-      for (var x of resultado) {
-        JSON.stringify(x);
-
-        arrayCamisetas.push({
-          camiseta_nombre: x.nombre,
-          id_artista: x.id_artista,
-          img_camiseta: x.imagen_camiseta,
-        });
-      }
-
-      mostrarCamisetas(arrayCamisetas);
-    },
-    error: function (xhr) {
-      localStorage.setItem("errorMostrandoCamisetas", xhr);
-    },
-  });
-  $.ajax({
-    type: "GET",
-    url: "php/mostrarVinilos.php",
-    dataType: "json",
-    success: function (resultado) {
-      for (var x of resultado) {
-        JSON.stringify(x);
-
-        arrayVinilos.push({
-          vinilo_nombre: x.nombre,
-          id_artista: x.id_artista,
-          img_cd: x.imagen_cd,
-          img_vinilo: x.imagen_vinilo,
-        });
-      }
-
-      mostrarVinilos(arrayVinilos);
-    },
-    error: function (xhr) {
-      localStorage.setItem("errorMostrandoVinilos", xhr);
     },
   });
 
@@ -168,8 +77,10 @@ $(document).ready(function () {
               "</div><div class='video-youtube'><iframe width='560' height='315' title='Youtube video of Double Horse'" +
               "src='https://www.youtube.com/embed/zaXxjvTJ684' frameborder='0' allow='ccelerometer; autoplay; clipboard-write;" +
               " encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe></div><iframe style='order-radius:12px'" +
-              " src='https://open.spotify.com/embed/artist/57fCZk5tMzdPTvee0IXe9n?utm_source=generator&theme=0' width='90%' height='380' class='iframe-spotify'" +
-              "frameBorder='0' allowfullscreen='' allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture'></iframe><div class='products'></div>"
+              " src='https://open.spotify.com/embed/artist/57fCZk5tMzdPTvee0IXe9n?utm_source=generator&theme=0' width='90%' height='"+
+              "380' class='iframe-spotify'" +
+              "frameBorder='0' allowfullscreen='' allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture'>"+
+              "</iframe><div class='products'></div>"
           ).appendTo("main");
         } else if (element.genero == "doom metal") {
           $(
@@ -212,96 +123,7 @@ $(document).ready(function () {
         }
       });
     }
-    function mostrarCDs(arrayMerch) {
-      arrayMerch.forEach((element) => {
-        if (element.id_artista == 5) {
-          $(
-            "<div class='contenedor-producto' id='cd-dh'><div class='div-productos-relacionados'><img src='assets/cds/" +
-              element.img_cd +
-              "' alt='" +
-              element.cd_nombre +
-              "' class='img-artistas-relacionados'></div><div class='name-product'> <p> " +
-              element.cd_nombre +
-              "</p></div></div>"
-          ).appendTo("main");
-        }
-      });
-      $(".img-artistas-relacionados").mouseenter(function () {
-        $(this).animate({ width: "105%", height: "105%" }, 500, "linear");
-      });
-      $(".img-artistas-relacionados").mouseleave(function () {
-        $(this).stop(true);
-        $(this).animate({ width: "100%", height: "100%" }, 500, "linear");
-      });
-    }
-    function mostrarCasetes(arrayMerch) {
-      arrayMerch.forEach((element) => {
-        if (element.id_artista == 5) {
-          $(
-            "<div class='contenedor-producto' id='casete-dh'><div class='div-productos-relacionados'>" +
-              "<img src='assets/casetes/" +
-              element.img_casete +
-              "' alt='" +
-              element.casete_nombre +
-              "' class='img-artistas-relacionados'></div><div class='name-product'>" +
-              " <p> " +
-              element.casete_nombre +
-              "</p></div></div>"
-          ).appendTo("main");
-        }
-      });
-      $(".img-artistas-relacionados").mouseenter(function () {
-        $(this).animate({ width: "105%", height: "105%" }, 500, "linear");
-      });
-      $(".img-artistas-relacionados").mouseleave(function () {
-        $(this).stop(true);
-        $(this).animate({ width: "100%", height: "100%" }, 500, "linear");
-      });
-    }
-    function mostrarVinilos(arrayMerch) {
-      arrayMerch.forEach((element) => {
-        if (element.id_artista == 5) {
-          $(
-            "<div class='contenedor-producto' id='vinilo-dh'><div class='div-productos-relacionados'><img src='assets/vinilos/" +
-              element.img_vinilo +
-              "' alt='" +
-              element.vinilo_nombre +
-              "' class='img-artistas-relacionados'></div><div class='name-product'> <p> " +
-              element.vinilo_nombre +
-              "</p></div></div>"
-          ).appendTo("main");
-        }
-      });
-      $(".img-artistas-relacionados").mouseenter(function () {
-        $(this).animate({ width: "105%", height: "105%" }, 500, "linear");
-      });
-      $(".img-artistas-relacionados").mouseleave(function () {
-        $(this).stop(true);
-        $(this).animate({ width: "100%", height: "100%" }, 500, "linear");
-      });
-    }
-    function mostrarCamisetas(arrayMerch) {
-      arrayMerch.forEach((element) => {
-        if (element.id_artista == 5) {
-          $(
-            "<div class='contenedor-producto' id='camiseta-dh'><div class='div-productos-relacionados'><img src='assets/camisetas/" +
-              element.img_camiseta +
-              "' alt='" +
-              element.camiseta_nombre +
-              "'  class='img-artistas-relacionados'></div><div class='name-product'> <p> " +
-              element.camiseta_nombre +
-              "</p></div></div>"
-          ).appendTo("main");
-        }
-      });
-      $(".img-artistas-relacionados").mouseenter(function () {
-        $(this).animate({ width: "105%", height: "105%" }, 500, "linear");
-      });
-      $(".img-artistas-relacionados").mouseleave(function () {
-        $(this).stop(true);
-        $(this).animate({ width: "100%", height: "100%" }, 500, "linear");
-      });
-    }
+   
   } else if (localStorage.getItem("ubication") == "Bloody Crom") {
     $("html, body").animate({ scrollTop: 0 }, 1000);
     function artistas(arrayArtista) {
@@ -388,51 +210,6 @@ $(document).ready(function () {
         }
       });
     }
-
-    function mostrarCasetes(arrayMerch) {
-      arrayMerch.forEach((element) => {
-        if (element.id_artista == 7) {
-          $(
-            "<div class='contenedor-producto' id='casete-bc'><div class='div-productos-relacionados'><img src='assets/casetes/" +
-              element.img_casete +
-              "' alt='" +
-              element.casete_nombre +
-              "' class='img-artistas-relacionados'></div><div class='name-product'> <p> " +
-              element.casete_nombre +
-              "</p></div></div>"
-          ).appendTo("main");
-        }
-      });
-      $(".img-artistas-relacionados").mouseenter(function () {
-        $(this).animate({ width: "105%", height: "105%" }, 500, "linear");
-      });
-      $(".img-artistas-relacionados").mouseleave(function () {
-        $(this).stop(true);
-        $(this).animate({ width: "100%", height: "100%" }, 500, "linear");
-      });
-    }
-    function mostrarCamisetas(arrayMerch) {
-      arrayMerch.forEach((element) => {
-        if (element.id_artista == 7) {
-          $(
-            "<div class='contenedor-producto' id='camiseta-bc'><div class='div-productos-relacionados'><img src='assets/camisetas/" +
-              element.img_camiseta +
-              "' alt='" +
-              element.camiseta_nombre +
-              "'  class='img-artistas-relacionados'></div><div class='name-product'> <p> " +
-              element.camiseta_nombre +
-              "</p></div></div>"
-          ).appendTo("main");
-        }
-      });
-      $(".img-artistas-relacionados").mouseenter(function () {
-        $(this).animate({ width: "105%", height: "105%" }, 500, "linear");
-      });
-      $(".img-artistas-relacionados").mouseleave(function () {
-        $(this).stop(true);
-        $(this).animate({ width: "100%", height: "100%" }, 500, "linear");
-      });
-    }
   } else if (
     localStorage.getItem("ubication") ==
     "Here the captain speaking, the captain is dead"
@@ -445,6 +222,7 @@ $(document).ready(function () {
       $(
         "</br></br><h1>Artistas locales:</h1><div class='locales'></div>"
       ).appendTo(".content-extension");
+
       arrayArtista.forEach((element) => {
         if (element.name == "Here the captain speaking, the captain is dead") {
           $(
@@ -477,7 +255,8 @@ $(document).ready(function () {
               " doom y stoner, y, más recientemente, han realizado un ejercicio" +
               " de música programática interpretando en directo una serie de temas inéditos compuestos para la proyección de la película de" +
               " culto La planète sauvage (1973) de René Laloux." +
-              " En la actualidad se encuentran ultimando los detalles de su segundo disco, bajo el nombre de 'Flux Capacitor', que será publicado a finales del presente año." +
+              " En la actualidad se encuentran ultimando los detalles de su segundo disco, bajo el nombre de 'Flux Capacitor', que será publicado"+
+              " a finales del presente año." +
               " Sin duda, una banda para flotar en el espacio. <br><br><i class='fa-brands fa-bandcamp'></i><a href='" +
               element.bandcamp +
               "' target='_blank'>Bandcamp de " +
@@ -539,73 +318,6 @@ $(document).ready(function () {
             $(this).animate({ width: "100%", height: "100%" }, 500, "linear");
           });
         }
-      });
-    }
-
-    function mostrarCasetes(arrayMerch) {
-      arrayMerch.forEach((element) => {
-        if (element.id_artista == 8) {
-          $(
-            "<div class='contenedor-producto' id='casete-captain'><div class='div-productos-relacionados'><img src='assets/casetes/" +
-              element.img_casete +
-              "' alt='" +
-              element.casete_nombre +
-              "' class='img-artistas-relacionados'></div><div class='name-product'> <p> " +
-              element.casete_nombre +
-              "</p></div></div>"
-          ).appendTo("main");
-        }
-      });
-      $(".img-artistas-relacionados").mouseenter(function () {
-        $(this).animate({ width: "105%", height: "105%" }, 500, "linear");
-      });
-      $(".img-artistas-relacionados").mouseleave(function () {
-        $(this).stop(true);
-        $(this).animate({ width: "100%", height: "100%" }, 500, "linear");
-      });
-    }
-    function mostrarVinilos(arrayMerch) {
-      arrayMerch.forEach((element) => {
-        if (element.id_artista == 8) {
-          $(
-            "<div class='contenedor-producto' id='vinilo-captain'><div class='div-productos-relacionados'><img src='assets/vinilos/" +
-              element.img_vinilo +
-              "' alt='" +
-              element.vinilo_nombre +
-              "' class='img-artistas-relacionados'></div><div class='name-product'> <p> " +
-              element.vinilo_nombre +
-              "</p></div></div>"
-          ).appendTo("main");
-        }
-      });
-      $(".img-artistas-relacionados").mouseenter(function () {
-        $(this).animate({ width: "105%", height: "105%" }, 500, "linear");
-      });
-      $(".img-artistas-relacionados").mouseleave(function () {
-        $(this).stop(true);
-        $(this).animate({ width: "100%", height: "100%" }, 500, "linear");
-      });
-    }
-    function mostrarCamisetas(arrayMerch) {
-      arrayMerch.forEach((element) => {
-        if (element.id_artista == 8) {
-          $(
-            "<div class='contenedor-producto' id='camiseta-captain'><div class='div-productos-relacionados'><img src='assets/camisetas/" +
-              element.img_camiseta +
-              "' alt='" +
-              element.camiseta_nombre +
-              "'  class='img-artistas-relacionados'></div><div class='name-product'> <p> " +
-              element.camiseta_nombre +
-              "</p></div></div>"
-          ).appendTo("main");
-        }
-      });
-      $(".img-artistas-relacionados").mouseenter(function () {
-        $(this).animate({ width: "105%", height: "105%" }, 500, "linear");
-      });
-      $(".img-artistas-relacionados").mouseleave(function () {
-        $(this).stop(true);
-        $(this).animate({ width: "100%", height: "100%" }, 500, "linear");
       });
     }
   } else if (localStorage.getItem("ubication") == "Hawkwind") {

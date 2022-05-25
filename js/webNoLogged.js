@@ -1,6 +1,7 @@
 $(document).ready(function() {
 
-    let arrayArtista = [];
+  let arrayArtista = [];
+
     let arrayConciertos = [];
 
     $.ajax({
