@@ -59,7 +59,7 @@ $(document).ready(function ($) {
   });
 
   $("#btn-login").on("click", function (event) {
-
+localStorage.setItem("clicado", "clicado");
   
     event.preventDefault();
 

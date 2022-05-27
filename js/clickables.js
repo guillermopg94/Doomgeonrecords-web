@@ -37,13 +37,6 @@ location.reload();
         window.open("https://santich.com.es/es/5-camisetas", "_blank");
       });
   
-    
- 
-   
-    
-
-
-
   $("#logo-en-no-logged").on("click", function () {
     localStorage.setItem("ubication", "home-no-logged");
     location.reload();

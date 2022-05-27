@@ -116,7 +116,7 @@ else if(localStorage.getItem("ubication")=="conciertos-logged"){
             element.nombre +
             "'  class='img-artistas-relacionados'></div><div class='name-product'> <p> " +
             element.nombre +
-            "</p></div></div>"
+            "</p><p>"+ element.descripcion +"</p></div></div>"
         ).appendTo("main");
       });
       $(".img-artistas-relacionados").mouseenter(function () {
